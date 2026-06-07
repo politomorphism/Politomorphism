@@ -2,7 +2,9 @@
 
 **Serban Gabriel Florin** | Independent Researcher  
 ORCID: [0009-0000-2266-3356](https://orcid.org/0009-0000-2266-3356) | SSRN: [ssrn.com/author=6192814](https://ssrn.com/author=6192814)  
-Substack: [profserban.substack.com](https://profserban.substack.com) | GitHub: [github.com/politomorphism](https://github.com/politomorphism)
+ResearchGate: [researchgate.net/profile/Serban-Gabriel-Florin](https://www.researchgate.net/profile/Serban-Gabriel-Florin) | Academia.edu: [independent.academia.edu/Gabrielserban43](https://independent.academia.edu/Gabrielserban43)  
+Substack: [profserban.substack.com](https://profserban.substack.com) | GitHub: [github.com/politomorphism](https://github.com/politomorphism)  
+Amazon: [amazon.com/Serban-Gabriel-Florin/e/B0D57JJ7VX](https://amazon.com/Serban-Gabriel-Florin/e/B0D57JJ7VX)
 
 ---
 
@@ -11,6 +13,8 @@ Substack: [profserban.substack.com](https://profserban.substack.com) | GitHub: [
 **Politomorphism** is a paradigm in **Computational Political Anthropology (CPA)** — a transdisciplinary framework that treats political entities (leaders, movements, institutions) as *morphic agents*: symbolic structures capable of transforming social perception, legitimacy, and collective behavior through measurable computational mechanisms.
 
 The framework integrates political anthropology, computational linguistics, media theory, survival analysis, and inferential statistics into a unified analytical architecture with seven interconnected components.
+
+> *"Political symbols are not representations of power — they are power's primary transmission medium."*
 
 ---
 
@@ -39,107 +43,92 @@ SRM_opt = V × A × exp(−λ^0.20 × D^3.00) × N
 
 **Validated symbols (25 symbol-periods, LOOCV R²=0.770):**
 
-| Symbol / Context | V | A | D | N | SRM | Interpretation |
-|-----------------|---|---|---|---|-----|----------------|
-| Sunflower Mvt (TW, 2014) | 0.680 | 0.420 | 0.1717 | 0.580 | 0.0552 | Low |
-| Călin Georgescu (RO, 2024) | 0.750 | 0.338 | 0.8815 | 0.880 | **0.0800** | Medium |
-| Marcel Ciolacu (RO, 2025–26) | 0.520 | 0.440 | 0.3481 | 0.440 | 0.0345 | Low |
-| Donald Trump (US, 2015–16) | 0.106 | 0.560 | 0.3746 | 0.720 | 0.0922 | Medium |
-| Zelensky (UA/EU/US, 2022–26) | 0.873 | 0.640 | 0.480 | 0.781 | **0.1121** | Medium |
-| Imran Khan (PK, 2018) | — | — | — | — | **0.4349** | HIGH — record dataset entry |
-| Javier Milei (AR, 2023–24) | — | — | — | — | 0.0455 | Low |
-
-**Published SSRN papers (Serban 2026a–2026g):**
-- [SRM Sunflower Movement Validation](https://ssrn.com/author=6192814)
-- [SRM Călin Georgescu Validation](https://ssrn.com/author=6192814)
-- [SRM Marcel Ciolacu Validation](https://ssrn.com/author=6192814)
-- [SRM Donald Trump Validation](https://ssrn.com/author=6192814)
-- [SRM Zelensky Validation](https://ssrn.com/author=6192814)
-- [SRM Imran Khan — Record Entry](https://ssrn.com/author=6192814)
-- [SRM Javier Milei](https://ssrn.com/author=6192814)
+| Symbol / Context | SRM | Interpretation |
+|-----------------|-----|----------------|
+| Imran Khan (PK, 2018) | **0.4349** | HIGH — record dataset entry, Ultra-Sustained Ambient Saturation λ |
+| Volodymyr Zelensky (UA/EU/US, 2022–26) | **0.1121** | Medium |
+| Călin Georgescu (RO, Oct–Dec 2024) | **0.0800** | Medium |
+| Donald Trump (US, Feb 2015–Nov 2016) | 0.0922 | Medium |
+| Giorgia Meloni (IT, 2021–2024) | — | Medium — Institutional Anchor |
+| Narendra Modi (IN, 2024) | — | CCFI Asymptote documented |
+| Vladimir Putin (RU) | — | Distributed |
+| Emmanuel Macron (FR) | — | Distributed |
+| Javier Milei (AR, 2023–24) | 0.0455 | Low, λ=29.246 |
+| Marcel Ciolacu (RO, 2025–26) | 0.0345 | Low |
+| Sunflower Movement (TW, 2014) | 0.0552 | Low |
 
 ---
 
 ### 2. Legitimacy Dynamics Engine (LDE) ✅ *Published*
 
-The LDE models legitimacy trajectories over time using Eurobarometer longitudinal data (EB82–EB104, 2014–2025).
+Longitudinal legitimacy modeling using real Eurobarometer data (EB82–EB104, 2014–2025).
 
-**LDE Preprint #4** — Cross-national calibration on **Greece, Hungary, and Serbia** with bootstrap confidence intervals at model level. Submitted to SSRN (preliminary upload review).
-
-Key features:
-- Real Eurobarometer survey data (not proxy calibrations)
-- Bootstrap CI at model level
-- Cross-national validation across three distinct political regimes
+- Cross-national calibration: **Greece, Hungary, Serbia**
+- Preliminary calibration: Romania, Hungary, Poland (2004–2024)
+- Bootstrap confidence intervals at model level
+- Two preprints submitted to SSRN (Preliminary Upload)
 
 ---
 
 ### 3. Entropic Equilibrium Function (EEF) ✅ *Published*
 
-The EEF measures the entropic state of political systems — the degree to which a system approaches equilibrium or instability.
+Measures the entropic state of political systems.
 
-**Validation results:**
-- Krippendorff α = 0.8116 (inter-rater reliability)
-- LOO-CV F1 = 1.000
-- Convergent validity confirmed against V-Dem indicators
-- Countries validated: Romania, Hungary, Poland (2005–2024)
+- Krippendorff α = **0.8116**
+- LOO-CV F1 = **1.000**
+- Convergent validity confirmed against V-Dem
+- Countries: Romania, Hungary, Poland (2005–2024)
 - V-Dem cross-national extension designed for 13 countries
-
-Published on SSRN. [View paper →](https://ssrn.com/author=6192814)
 
 ---
 
-### 4. Political Fragmentation Model (PFM) ✅ *Published*
+### 4. Symbolic Coherence Index (ISC) ✅ *Published (including null result)*
 
-The PFM aggregates SRM symbol scores into a system-level fragmentation index:
+```
+ISC = f(semantic coherence of parliamentary speech × electoral support)
+```
+
+- First empirical computation: PSD, PNL, USR Romania 2020
+- **Null result documented**: quasi-constant CI_vote (SD < 0.015) → spurious fixed-effects
+- Governing Party Penalty identified as confounding factor
+- Development set: Poland | Held-out validation: Romania
+- Five SSRN papers published, including openly documented null result
+
+---
+
+### 5. Political Fragmentation Model (PFM) ✅ *Published*
 
 ```
 PFM(t) = Σ[SRM_i × w_ij × exp(-δ × d_ij)] / EEF(t)
 ```
 
-Where `w_ij` represents inter-symbol interaction weights and `d_ij` represents ideological distance between symbols.
-
-Published on SSRN as a working paper. [View paper →](https://ssrn.com/author=6192814)
+System-level fragmentation index aggregating SRM symbol scores.
 
 ---
 
-### 5. PFM-Survival (PFM-S) ✅ *Published*
+### 6. PFM-Survival (PFM-S) ✅ *Published & Pre-Registered*
 
-PFM-Survival extends the Political Fragmentation Model with survival analysis techniques to model the temporal durability of political configurations.
+Survival analysis extension modeling temporal durability of political configurations.
 
-- Retrospective demonstration on **Friedrich Merz** (Germany)
-- Five prospectively **pre-registered predictions on OSF** (DOI: [10.17605/OSF.IO/HYDNZ](https://doi.org/10.17605/OSF.IO/HYDNZ))
-- RSF C-index = 0.721
-
-Published on SSRN. Pre-registration on OSF. [View paper →](https://ssrn.com/author=6192814)
-
----
-
-### 6. Institutional Stability Classifier (ISC) ⚠️ *Null Result — Documented*
-
-The ISC component tested panel fixed-effects models on institutional stability indicators.
-
-**Finding:** Quasi-constant CI_vote (SD < 0.015) produced a methodological artefact, yielding spurious fixed-effects results. This is a **documented null result** — five SSRN documents published openly recording the methodological finding.
-
-Development set: Poland. Held-out validation set: Romania.
-
-This null result reflects the framework's commitment to academic honesty over overclaiming.
+- Random Survival Forest (RSF), C-index = **0.721**
+- Retrospective demonstration: Friedrich Merz (Germany)
+- Five prospective predictions **pre-registered on OSF**
+- DOI: [10.17605/OSF.IO/HYDNZ](https://doi.org/10.17605/OSF.IO/HYDNZ)
 
 ---
 
 ### 7. Collective Memory Graph (CMG) & Morphic Cascade (MC) 📋 *Theoretical*
 
-CMG and MC remain theoretical proposals awaiting empirical operationalization. Both are documented in the framework's foundational literature.
+Theoretical proposals awaiting empirical operationalization.
 
 ---
 
 ## Politomorf Pipeline v4.2
 
-An automated Romanian political media monitoring system with:
-- 26 RSS sources
-- 48-hour collection windows
-- 4-agent sequential architecture: Collector → NER Extractor → Analysis Engine → Report Generator
-- Parliament vote data integration
-- Automated report generation
+Automated Romanian political media monitoring:
+
+- **26 RSS sources**, 48-hour collection windows
+- 4-agent sequential architecture
 
 ```
 agents/
@@ -151,62 +140,83 @@ agents/
 
 ---
 
-## SYMBOVOLT Electoral Prediction Model
+## SSRN Published Papers
 
-SYMBOVOLT integrates SRM and EEF scores to generate directional electoral predictions. Validated directionally on the **2025 Hungarian parliamentary election**.
+**Author page:** [ssrn.com/author=6192814](https://ssrn.com/author=6192814) | Author Rank: 511,587 / 2,761,569
 
----
+### Distributed (Publicly Available)
 
-## OSF Pre-Registration
+| # | Title | Abstract ID | Date |
+|---|-------|-------------|------|
+| 1 | Politomorphism And Symbolic Resonance Mapping (SRM): A Computational Model for the Analysis of Political Symbol Diffusion | [6348318](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6348318) | Mar 2026 |
+| 2 | SRM: Computational Validation through Analysis of the "Sunflower Movement" Symbol | [6393484](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6393484) | Mar 2026 |
+| 3 | Computational Validation through Analysis of the "Călin Georgescu" Symbol | [6459121](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6459121) | Mar 2026 |
+| 4 | Computational Validation through Analysis of the "Donald Trump" Symbol | [6459163](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6459163) | Mar 2026 |
+| 5 | Operationalizing Semantic Drift (D) in the SRM: Polysemy Entropy and Intra-contextual Incoherence | [6583879](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6583879) | Apr 2026 |
+| 6 | SRM: Computational Validation through Analysis of the "Volodymyr Zelensky" Symbol | [6615818](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6615818) | Apr 2026 |
+| 7 | Preprint — Open for Peer Review — SSRN 2026/1 | [6615858](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6615858) | Apr 2026 |
+| 8 | SRM: Computational Validation through Analysis of the "Vladimir Putin" Symbol | [6646623](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6646623) | Apr 2026 |
+| 9 | SRM: Computational Validation through Analysis of the "Emmanuel Macron" Symbol | [6647320](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6647320) | Apr 2026 |
+| 10 | The CCFI Asymptote: Cross-Cultural Frame Incompatibility Does Not Decay to Zero — Narendra Modi (India, 2024) | [6648238](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6648238) | Apr 2026 |
+| 11 | Breaking the ICI Ceiling: Cross-Cultural Frame Incompatibility and the Social Resonance Model | [6651878](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6651878) | Apr 2026 |
+| 12 | Does Cross-Cultural Frame Incompatibility Decrease with Familiarity? | [6651898](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6651898) | Apr 2026 |
+| 13 | Electoral Victory Surge: SRM Validation of the Imran Khan 2018 Symbol and the Ultra-Sustained Ambient Saturation Lambda Category | [6654358](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6654358) | Apr 2026 |
+| 14 | Politomorphism and the SRM: Quantifying Political Symbolic Fragmentation Across 22 Symbol-Periods | [6654458](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6654458) | Apr 2026 |
+| 15 | The Politomorphism Engine: A Five-Component Framework for Computational Political Analysis | [6654638](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6654638) | Apr 2026 |
+| 16 | PE Sensitivity Analysis Across K=5, K=10, K=15: Topic Modeling Robustness | [6668338](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6668338) | Apr 2026 |
+| 17 | SSRN Working Paper — Politomorphism Research Project — Engine Component #2 (EEF) | [6677579](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6677579) | Apr 2026 |
+| 18 | Event-Bound Temporal Concentration and Baseline Distortion: Cross-Platform Identification of the Lambda Parameter | [6712538](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6712538) | May 2026 |
+| 19 | The Sustained Electoral Burst of Javier Milei: SRM Computation and Symbolic Profile | [6725098](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6725098) | May 2026 |
+| 20 | Political Fragmentation Model (PFM): A Formal Theory of Fragmentation Propagation | [6729899](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6729899) | May 2026 |
+| 21 | Institutional Anchor Under Adversarial Framing: SRM Analysis of Giorgia Meloni (2021–2024) | [6735646](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6735646) | May 2026 |
+| 22 | Bootstrap ICI (18 Symbols), Parametric Optimization, Prophet Forecasting, and Typological Revision | [6738240](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6738240) | May 2026 |
+| 23 | PFM-Survival: Pre-Registered Random Survival Forest Prediction of Political Symbol Attention Decay | [6744298](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6744298) | May 2026 |
+| 24 | The VP Baseline Effect: Exploratory Comparative Evidence on Institutional Incumbency and Post-Defeat Symbolic Decay | [6789801](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6789801) | May 2026 |
+| 25 | Politomorphism and the Measurement of Symbolic Coherence: The ISC as the Fourth Component | [6810740](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6810740) | May 2026 |
+| 26 | First Empirical Computation of the ISC: PSD, PNL, and USR Romania 2020 | [6818259](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6818259) | May 2026 |
+| 27 | Coupling SRM, EEF, and ISC: The Adaptive Layer of the Politomorphism Engine | [6815478](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6815478) | May 2026 |
+| 28 | The Symbolic Coherence Index Does Not Predict Electoral Support in Romania 2019–2024: A Null Result | [6826140](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6826140) | May 2026 |
 
-All prospective predictions and empirical protocols are pre-registered at the Open Science Framework:
+### In Preliminary Upload Review
 
-**DOI: [10.17605/OSF.IO/HYDNZ](https://doi.org/10.17605/OSF.IO/HYDNZ)**
+| Title | Abstract ID | Date |
+|-------|-------------|------|
+| LDE: Cross-national empirical calibration on Standard Eurobarometer data (2014–2025) — Preprint #4 | 6850362 | May 2026 |
+| The LDE: Preliminary Empirical Calibration on Romania, Hungary, and Poland (2004–2024) | 6844959 | May 2026 |
+| Parliamentary Speech Coherence Does Not Predict Electoral Support: A Null Result from Poland and Romania | 6844480 | May 2026 |
+| Complete Information Ecosystem Absence as a Hypothesized Vulnerability Condition for Platform-Native Disinformation | 6864319 | Jun 2026 |
+| Symbolic Absence as a Structural Precondition for Disinformation: Evidence from the Romanian Electoral Crisis of 2024 | 6857720 | May 2026 |
+| Symbolic Exile and Juridical Persistence: A Flash-Viral Symbol's Structural Transformation After Election Annulment | 6880661 | Jun 2026 |
 
 ---
 
 ## Books & Long-form Publications
 
-| Title | Status | Platform |
-|-------|--------|----------|
-| *Digital Tribalism* | Chapters 1–5 complete (EN) | In progress |
-| *Foundations of Computational Political Anthropology* | Drafted | In progress |
-| *Juridical Chains* | Published | Amazon / Hatchards / Foyles |
-| *Elite Extinction* | In progress — HIER framework chapter complete | In progress |
-| ~28–30 volumes total | Published | [Amazon Author Page](https://amazon.com/Serban-Gabriel-Florin/e/B0D57JJ7VX) |
+~28–30 volumes published. Full list: [amazon.com/Serban-Gabriel-Florin/e/B0D57JJ7VX](https://amazon.com/Serban-Gabriel-Florin/e/B0D57JJ7VX)
 
-**Digital Tribalism** introduces original theoretical concepts including *Negative Sovereignty*, *Tolerated Illegibility*, *Navigational Citizenship*, and *Parastatal Equilibrium*.
-
-**Foundations of CPA** is structured around a four-axiom architecture with a formal structural impossibility argument.
+| Title | Status |
+|-------|--------|
+| *Digital Tribalism* | Chapters 1–5 complete (EN) — original concepts: *Negative Sovereignty*, *Tolerated Illegibility*, *Navigational Citizenship*, *Parastatal Equilibrium* |
+| *Foundations of Computational Political Anthropology* | Drafted — four-axiom structure, formal structural impossibility argument |
+| *Juridical Chains* | Published |
+| *Elite Extinction* | In progress — HIER (Hierarchical Network Resonance) framework chapter complete |
 
 ---
 
-## PACES Platform
+## OSF Pre-Registration
 
-**PACES** (Platforma de Analiză Comportamentală și Engagement Social) is a Romanian political media monitoring SaaS platform built on the Politomorphism framework.
-
-- Frontend: React / Vercel
-- Backend: FastAPI / Render
-- Database: Supabase
-- Price: 49€/month
+**DOI: [10.17605/OSF.IO/HYDNZ](https://doi.org/10.17605/OSF.IO/HYDNZ)**
 
 ---
 
-## SSRN Working Papers
+## Methodology
 
-All working papers are available at: **[ssrn.com/author=6192814](https://ssrn.com/author=6192814)**
-
-Key papers include SRM validations (2026a–2026g), EEF cross-national validation, PFM working paper, PFM-Survival with OSF pre-registration, ISC null result documentation, LDE cross-national calibration, and the Călin Georgescu disinformation ecosystem paper.
-
----
-
-## Methodology & Quality Control
-
-- All empirical results use LOOCV (Leave-One-Out Cross-Validation)
-- Bootstrap confidence intervals reported at model level
-- Null results documented and published openly (ISC)
-- Adversarial AI review (Grok, ChatGPT) used as quality control before SSRN submission
-- V-Dem used as external convergent validity benchmark
+- LOOCV (Leave-One-Out Cross-Validation) for all empirical results
+- Bootstrap confidence intervals at model level
+- Null results documented and published openly
+- Adversarial AI review (Grok, ChatGPT) as quality control before SSRN submission
+- V-Dem as external convergent validity benchmark
+- Parametric L-BFGS-B optimization for SRM formula
 
 ---
 
@@ -222,5 +232,6 @@ CC BY 4.0 — All code and data are open source and publicly available.
 Serban, G.F. (2026). Politomorphism: Computational Political Anthropology Framework.
 GitHub: https://github.com/politomorphism/Politomorphism
 ORCID: 0009-0000-2266-3356
-OSF Pre-registration: https://doi.org/10.17605/OSF.IO/HYDNZ
+SSRN: https://ssrn.com/author=6192814
+OSF: https://doi.org/10.17605/OSF.IO/HYDNZ
 ```
