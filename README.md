@@ -4,7 +4,7 @@
 ORCID: [0009-0000-2266-3356](https://orcid.org/0009-0000-2266-3356) | SSRN: [ssrn.com/author=6192814](https://ssrn.com/author=6192814)  
 ResearchGate: [researchgate.net/profile/Serban-Gabriel-Florin](https://www.researchgate.net/profile/Serban-Gabriel-Florin) | Academia.edu: [independent.academia.edu/Gabrielserban43](https://independent.academia.edu/Gabrielserban43)  
 Substack: [profserban.substack.com](https://profserban.substack.com) | GitHub: [github.com/politomorphism](https://github.com/politomorphism)  
-Amazon: [amazon.com/Serban-Gabriel-Florin/e/B0D57JJ7VX](https://amazon.com/Serban-Gabriel-Florin/e/B0D57JJ7VX)
+Amazon: [Author Page](https://author.amazon.de/books?language=en_US)
 
 ---
 
@@ -13,6 +13,8 @@ Amazon: [amazon.com/Serban-Gabriel-Florin/e/B0D57JJ7VX](https://amazon.com/Serba
 **Politomorphism** is a paradigm in **Computational Political Anthropology (CPA)** — a transdisciplinary framework that treats political entities (leaders, movements, institutions) as *morphic agents*: symbolic structures capable of transforming social perception, legitimacy, and collective behavior through measurable computational mechanisms.
 
 The framework integrates political anthropology, computational linguistics, media theory, survival analysis, and inferential statistics into a unified analytical architecture with seven interconnected components.
+
+Politomorphism was conceived, designed, and developed entirely by **Serban Gabriel Florin** as an independent researcher, outside any institutional affiliation, over a continuous period of **approximately two years** (2024–2026). All theoretical foundations, mathematical formulations, empirical validations, and software implementations are original work by the author.
 
 > *"Political symbols are not representations of power — they are power's primary transmission medium."*
 
@@ -192,7 +194,7 @@ agents/
 
 ## Books & Long-form Publications
 
-~28–30 volumes published. Full list: [amazon.com/Serban-Gabriel-Florin/e/B0D57JJ7VX](https://amazon.com/Serban-Gabriel-Florin/e/B0D57JJ7VX)
+~28–30 volumes published. Full list: [Amazon Author Page](https://author.amazon.de/books?language=en_US)
 
 | Title | Status |
 |-------|--------|
