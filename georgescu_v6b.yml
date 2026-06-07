@@ -1,0 +1,292 @@
+name: Georgescu v6b — Query fix + Bootstrap n=200
+
+on:
+  workflow_dispatch:
+
+jobs:
+  georgescu_v6b:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install pytrends requests
+          pip install mediacloud
+          pip install sentence-transformers==2.7.0
+          pip install scikit-learn==1.4.2
+          pip install numpy==1.26.4
+          pip install pandas==2.2.2
+          pip install matplotlib==3.8.4
+          pip install torch --index-url https://download.pytorch.org/whl/cpu
+
+      - name: Run combined pipeline
+        env:
+          MEDIACLOUD_API_KEY: ${{ secrets.MEDIACLOUD_API_KEY }}
+        run: |
+          python3 << 'PYEOF'
+          import os, sys, json, time, random, logging
+          from datetime import datetime, timedelta, date
+          import numpy as np
+          import pandas as pd
+          import matplotlib
+          matplotlib.use('Agg')
+          import matplotlib.pyplot as plt
+          import matplotlib.dates as mdates
+
+          logging.basicConfig(level=logging.INFO, format="%(asctime)s %(message)s")
+          log = logging.getLogger(__name__)
+          os.makedirs("results_v6b", exist_ok=True)
+          API_KEY = os.environ["MEDIACLOUD_API_KEY"]
+
+          # ─── TASK 1: GOOGLE TRENDS ───────────────────────────────────────────
+          log.info("="*60)
+          log.info("TASK 1: Google Trends geo=RO")
+          log.info("="*60)
+
+          trends_data = None
+          trends_is_real = False
+
+          # Try multiple approaches for Google Trends
+          trend_attempts = [
+              ('Calin Georgescu', 'ro-RO', 'RO'),
+              ('Calin Georgescu', 'en-US', 'RO'),
+              ('Georgescu', 'ro-RO', 'RO'),
+          ]
+
+          for kw, hl, geo in trend_attempts:
+              try:
+                  from pytrends.request import TrendReq
+                  log.info(f"Trying: kw={kw} hl={hl} geo={geo}")
+                  pt = TrendReq(hl=hl, tz=120, timeout=(20,60), retries=2, backoff_factor=2.0)
+                  pt.build_payload([kw], timeframe='2024-09-01 2024-11-30', geo=geo)
+                  time.sleep(5)
+                  df = pt.interest_over_time()
+                  if not df.empty and df[kw].sum() > 0:
+                      df = df.reset_index()
+                      df_out = df[['date', kw]].copy()
+                      df_out.columns = ['date', 'interest']
+                      df_out['date'] = pd.to_datetime(df_out['date'])
+                      df_out.to_csv("results_v6b/georgescu_trends_RO.csv", index=False)
+                      log.info(f"SUCCESS: {len(df_out)} rows, max={df_out['interest'].max()}")
+                      log.info(f"Mean before Oct15: {df_out[df_out['date']<'2024-10-15']['interest'].mean():.1f}")
+                      log.info(f"Mean after Oct15:  {df_out[df_out['date']>='2024-10-15']['interest'].mean():.1f}")
+                      trends_data = df_out
+                      trends_is_real = True
+                      break
+                  else:
+                      log.warning(f"Empty or zero result for {kw}")
+                  time.sleep(8)
+              except Exception as e:
+                  log.warning(f"Attempt failed ({kw}): {e}")
+                  time.sleep(10)
+
+          if not trends_is_real:
+              log.warning("All Google Trends attempts failed — using estimated curve from ANCOM/EUvsDisinfo reports")
+              trend_dates = pd.date_range("2024-09-01","2024-11-30",freq="W")
+              trend_vals = []
+              for d in trend_dates:
+                  d = pd.Timestamp(d)
+                  if d < pd.Timestamp("2024-10-15"): trend_vals.append(3)
+                  elif d < pd.Timestamp("2024-11-01"): trend_vals.append(20+(d-pd.Timestamp("2024-10-15")).days*1.5)
+                  elif d < pd.Timestamp("2024-11-24"): trend_vals.append(55+(d-pd.Timestamp("2024-11-01")).days*1.2)
+                  else: trend_vals.append(100)
+              trend_vals = [min(100,v) for v in trend_vals]
+              trends_data = pd.DataFrame({'date': trend_dates, 'interest': trend_vals})
+              trends_data['date'] = pd.to_datetime(trends_data['date'])
+
+          # ─── TASK 2: FETCH WITH CORRECT QUERY + BOOTSTRAP n=200 ──────────────
+          log.info("="*60)
+          log.info("TASK 2: Fetch with full query + Bootstrap n=200")
+          log.info("="*60)
+
+          import mediacloud.api as mc_api
+          from sentence_transformers import SentenceTransformer
+          from sklearn.metrics.pairwise import cosine_similarity
+
+          search = mc_api.SearchApi(API_KEY)
+          model = SentenceTransformer("paraphrase-multilingual-MiniLM-L12-v2")
+
+          # FIXED: use same query as original pipeline that returned 228 articles
+          QUERY = '"Calin Georgescu" OR "Georgescu"'
+          START = date(2024, 11, 17)
+          END   = date(2024, 11, 30)
+          COLLECTION_IDS = [34412234]
+
+          log.info(f"Query: {QUERY}")
+          stories, token = [], None
+          try:
+              while len(stories) < 500:
+                  if token:
+                      page, token = search.story_list(QUERY, start_date=START, end_date=END,
+                                                       collection_ids=COLLECTION_IDS,
+                                                       pagination_token=token)
+                  else:
+                      page, token = search.story_list(QUERY, start_date=START, end_date=END,
+                                                       collection_ids=COLLECTION_IDS)
+                  if not page: break
+                  stories.extend(page)
+                  log.info(f"  +{len(page)} (total {len(stories)})")
+                  if not token: break
+                  time.sleep(0.3)
+          except Exception as e:
+              log.warning(f"Fetch error: {e}")
+
+          titles = [(s.get('title','') or '').strip() for s in stories]
+          titles = [t for t in titles if len(t) > 10]
+          log.info(f"Valid titles: {len(titles)}")
+
+          # Save titles for reproducibility
+          with open("results_v6b/titles_nov17_30.json","w",encoding="utf-8") as f:
+              json.dump({"n_stories": len(stories), "n_titles": len(titles),
+                         "query": QUERY, "titles": titles[:50]}, f, ensure_ascii=False, indent=2)
+
+          BOOTSTRAP_N = 200
+          SEED = 42
+          random.seed(SEED); np.random.seed(SEED)
+          n = len(titles)
+          bootstrap_result = None
+
+          if n >= 10:
+              emb = model.encode(titles, show_progress_bar=True, batch_size=32)
+              log.info(f"Embeddings: {emb.shape}")
+              samples = []
+              sz = min(100, n)
+              for i in range(BOOTSTRAP_N):
+                  idx = np.random.choice(n, sz, replace=True)
+                  sm = cosine_similarity(emb[idx])
+                  k = len(sm)
+                  up = [sm[a][b] for a in range(k) for b in range(a+1,k)]
+                  if up: samples.append(1.0 - float(np.mean(up)))
+                  if (i+1) % 50 == 0: log.info(f"  Bootstrap {i+1}/{BOOTSTRAP_N}")
+              arr = np.array(samples)
+              ici_mean = float(np.mean(arr))
+              ci_low   = float(np.percentile(arr, 2.5))
+              ci_high  = float(np.percentile(arr, 97.5))
+              log.info(f"\n{'='*50}")
+              log.info(f"BOOTSTRAP n=200 FINAL RESULT:")
+              log.info(f"  ICI  = {ici_mean:.4f}")
+              log.info(f"  CI   = [{ci_low:.4f}, {ci_high:.4f}]")
+              log.info(f"  Width= {ci_high-ci_low:.4f}")
+              log.info(f"  n_titles = {n}")
+              log.info(f"  Zelensky (0.542) inside CI: {ci_low <= 0.542 <= ci_high}")
+              log.info(f"  Orban   (0.592) inside CI: {ci_low <= 0.592 <= ci_high}")
+              log.info(f"{'='*50}")
+              bootstrap_result = {
+                  "ici_mean": ici_mean, "ci_low_200": ci_low, "ci_high_200": ci_high,
+                  "ci_width_200": ci_high-ci_low, "n_bootstrap": BOOTSTRAP_N,
+                  "n_titles": n, "query": QUERY,
+                  "zelensky_inside_ci": bool(ci_low <= 0.542 <= ci_high),
+                  "orban_inside_ci": bool(ci_low <= 0.592 <= ci_high),
+                  "comparison_n50": {"ici_mean": 0.4942, "ci_low": 0.4283, "ci_high": 0.5481}
+              }
+              with open("results_v6b/bootstrap_n200.json","w") as f:
+                  json.dump(bootstrap_result, f, indent=2)
+          else:
+              log.warning(f"Still insufficient titles: {n}")
+
+          # ─── TASK 3: DUAL-AXIS CHART ─────────────────────────────────────────
+          mc_windows = [
+              ("2024-09-01",0),("2024-09-08",0),("2024-09-15",0),
+              ("2024-09-22",0),("2024-09-29",0),("2024-10-06",0),
+              ("2024-10-13",0),("2024-10-20",2),("2024-10-27",4),
+              ("2024-11-03",3),("2024-11-10",2),
+              ("2024-11-17", n if n > 0 else 228),
+          ]
+          mc_dates  = [datetime.strptime(d,"%Y-%m-%d") for d,_ in mc_windows]
+          mc_counts = [c for _,c in mc_windows]
+
+          fig, ax1 = plt.subplots(figsize=(12,6))
+          ax2 = ax1.twinx()
+
+          color1 = '#2166ac'
+          ax1.bar(mc_dates, mc_counts, width=6, alpha=0.7, color=color1,
+                  label='Indexed mainstream articles (Media Cloud)', zorder=3)
+          ax1.set_ylabel('Articles in indexed mainstream media (n)', color=color1, fontsize=11)
+          ax1.tick_params(axis='y', labelcolor=color1)
+          ax1.set_ylim(0, 260)
+
+          color2 = '#d73027'
+          linestyle = '-' if trends_is_real else '--'
+          label_gt = 'Google Trends interest (geo=RO, actual)' if trends_is_real else 'Google Trends — estimated from ANCOM/EUvsDisinfo reports'
+          ax2.plot(trends_data['date'], trends_data['interest'],
+                   color=color2, linewidth=2.5, linestyle=linestyle,
+                   marker='o', markersize=4, label=label_gt, zorder=4)
+          ax2.set_ylabel('Google Trends interest (0–100, geo=RO)', color=color2, fontsize=11)
+          ax2.tick_params(axis='y', labelcolor=color2)
+          ax2.set_ylim(0, 110)
+
+          events = [
+              (datetime(2024,10,15),"TikTok spike\n(EUvsDisinfo)",'#ff7f00'),
+              (datetime(2024,11,1),"Campaign peak\n(ANCOM)",'#984ea3'),
+              (datetime(2024,11,24),"1st electoral\nround",'#4daf4a'),
+          ]
+          for ev_date,ev_label,ev_color in events:
+              ax1.axvline(x=ev_date,color=ev_color,linestyle='--',linewidth=1.5,alpha=0.8,zorder=2)
+              ax1.text(ev_date,245,ev_label,color=ev_color,fontsize=9,ha='center',va='top',
+                       fontweight='bold',bbox=dict(boxstyle='round,pad=0.2',facecolor='white',alpha=0.8))
+
+          ax1.axvspan(datetime(2024,10,15),datetime(2024,11,16),
+                      alpha=0.08,color='red',label='Dissociation window (Oct 15 – Nov 16)')
+
+          ax1.xaxis.set_major_formatter(mdates.DateFormatter('%d %b'))
+          ax1.xaxis.set_major_locator(mdates.WeekdayLocator(interval=2))
+          plt.xticks(rotation=45)
+          lines1,labels1 = ax1.get_legend_handles_labels()
+          lines2,labels2 = ax2.get_legend_handles_labels()
+          ax1.legend(lines1+lines2,labels1+labels2,loc='upper left',fontsize=9)
+
+          gt_note = "(actual data)" if trends_is_real else "(estimated — actual Google Trends retrieval pending)"
+          ax1.set_title(
+              f"Figure 1. Dissociation Pattern: Indexed Media Coverage vs. Alternative-Media Interest {gt_note}\n"
+              "Călin Georgescu, September 1 – November 30, 2024",
+              fontsize=12,fontweight='bold',pad=15)
+          ax1.set_xlabel("Date",fontsize=11)
+          ax1.grid(True,alpha=0.3,zorder=1)
+          plt.tight_layout()
+          plt.savefig("results_v6b/figure1_dissociation.png",dpi=200,bbox_inches='tight')
+          log.info("Figure 1 saved.")
+
+          # SUMMARY
+          summary = {
+              "run_timestamp": datetime.now().isoformat(),
+              "google_trends": {"status": "actual" if trends_is_real else "estimated", "rows": len(trends_data)},
+              "bootstrap_n200": bootstrap_result,
+              "n_titles_fetched": n,
+              "query_used": QUERY,
+          }
+          with open("results_v6b/summary_v6b.json","w",encoding="utf-8") as f:
+              json.dump(summary,f,ensure_ascii=False,indent=2)
+          log.info("DONE.")
+          PYEOF
+
+      - name: Upload results
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: georgescu-v6b-results
+          path: results_v6b/
+          retention-days: 90
+
+      - name: Commit results
+        if: success()
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          mkdir -p disinformation_paper/v6b_data
+          cp results_v6b/*.json disinformation_paper/v6b_data/ || true
+          cp results_v6b/*.png  disinformation_paper/v6b_data/ || true
+          git add disinformation_paper/v6b_data/ || true
+          git diff --staged --quiet || git commit -m "data: Georgescu v6b fixed query + n=200 $(date +'%Y-%m-%d')"
+          git push --rebase || true

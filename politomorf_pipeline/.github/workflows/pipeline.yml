@@ -1,0 +1,57 @@
+name: Politomorf Pipeline v4
+
+on:
+  schedule:
+    - cron: "0 5 * * *"   # 07:00 Bucharest
+  workflow_dispatch:
+
+jobs:
+  pipeline:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('requirements.txt') }}
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+          # Optionale NLP (decommenteaza daca vrei BERT/spaCy):
+          # pip install spacy
+          # python -m spacy download ro_core_news_lg
+          # pip install transformers torch
+
+      - name: Restore persistent data
+        run: |
+          mkdir -p data/raw data/processed data/reports
+
+      - name: Run Pipeline
+        env:
+          GMAIL_USER:         ${{ secrets.GMAIL_USER }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+          EMAIL_RECIPIENT:    ${{ secrets.EMAIL_RECIPIENT }}
+        run: python run_pipeline.py
+
+      - name: Archive reports
+        uses: actions/upload-artifact@v4
+        with:
+          name: politomorf-v4-${{ github.run_id }}
+          path: data/reports/
+
+      - name: Commit results
+        run: |
+          git config user.name  "politomorf-v4[bot]"
+          git config user.email "politomorf-v4[bot]@users.noreply.github.com"
+          git add data/ || true
+          git diff --cached --quiet || git commit -m "pipeline: $(date -u +'%Y-%m-%d')"
+          git push

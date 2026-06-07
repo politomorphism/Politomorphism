@@ -1,0 +1,32 @@
+{
+  "record_type": "PHASE_B_SEALED_PREDICTION",
+  "symbol": "Nicusor Dan",
+  "peak_date": "2025-05-18",
+  "extraction_timestamp": "2026-05-21T14:27:14.414884Z",
+  "model_path": "models\\rsf_pfm_v4.pkl",
+  "pipeline_version": "v4",
+  "features": {
+    "ratio_4wk": 0.08,
+    "decay_rate_4wk": -0.52052327317028,
+    "CDI": 0.009973519612550772,
+    "PE_ICI_gap": 0.576,
+    "PE_ICI_gap_imputed": true
+  },
+  "qc_flags": [
+    "HIGH_UNCERTAINTY_ratio",
+    "HIGH_UNCERTAINTY_decay"
+  ],
+  "survival_function": {
+    "S_3mo": 0.0,
+    "S_6mo": 0.0,
+    "S_12mo": 0.0,
+    "S_24mo": 0.0
+  },
+  "median_survival_months": 0.1,
+  "typology": "EPHEMERAL",
+  "phase": "B_PROSPECTIVE",
+  "validation_status": "PENDING",
+  "preregistration_doi": "10.17605/OSF.IO/HYDNZ",
+  "reporting_commitment": "Results published on OSF and GitHub regardless of direction.",
+  "sha256": "e4215d0b3de05fd09f7a979457ae48c1d2406ec87609c3f41dc95d54538d3d65"
+}

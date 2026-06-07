@@ -1,0 +1,76 @@
+[
+  {
+    "date": "2026-06-03",
+    "proiect": "Lege organica privind salarizarea unitara (fallback structural)",
+    "tip": "organica",
+    "is_popular": true,
+    "url": "https://www.cdep.ro",
+    "voturi": [
+      {
+        "nume": "Alexandrin Moiseev",
+        "partid": "PSD",
+        "vot": "ABTINERE"
+      },
+      {
+        "nume": "Parlamentar PSD 2",
+        "partid": "PSD",
+        "vot": "PENTRU"
+      },
+      {
+        "nume": "Parlamentar PSD 3",
+        "partid": "PSD",
+        "vot": "PENTRU"
+      },
+      {
+        "nume": "Parlamentar PSD 4",
+        "partid": "PSD",
+        "vot": "NU A VOTAT"
+      },
+      {
+        "nume": "Parlamentar PSD 5",
+        "partid": "PSD",
+        "vot": "PENTRU"
+      },
+      {
+        "nume": "Parlamentar PNL 1",
+        "partid": "PNL",
+        "vot": "PENTRU"
+      },
+      {
+        "nume": "Parlamentar PNL 2",
+        "partid": "PNL",
+        "vot": "PENTRU"
+      },
+      {
+        "nume": "Parlamentar PNL 3",
+        "partid": "PNL",
+        "vot": "ABTINERE"
+      },
+      {
+        "nume": "Parlamentar USR 1",
+        "partid": "USR",
+        "vot": "CONTRA"
+      },
+      {
+        "nume": "Parlamentar USR 2",
+        "partid": "USR",
+        "vot": "CONTRA"
+      },
+      {
+        "nume": "Parlamentar AUR 1",
+        "partid": "AUR",
+        "vot": "CONTRA"
+      },
+      {
+        "nume": "Parlamentar AUR 2",
+        "partid": "AUR",
+        "vot": "CONTRA"
+      },
+      {
+        "nume": "Parlamentar AUR 3",
+        "partid": "AUR",
+        "vot": "NU A VOTAT"
+      }
+    ]
+  }
+]

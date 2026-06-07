@@ -1,0 +1,5 @@
+country,quarter,actor,n_texts,cmp_real,ci_vote_real,ci_struct_est,ci_final,ci_quality,isc_final,srm,srm_source,srm_quality
+Romania,2020Q1,PSD,144,0.0827,0.8448,0.97,0.8949,partial_real,0.4888,0.26,CURS 30 ian 2020,verified
+Romania,2020Q2,PSD,106,0.0611,0.9844,0.98,0.9826,partial_real,0.5219,,missing,missing
+Romania,2020Q3,PSD,91,0.0566,,0.96,0.96,estimated,0.5083,,missing,missing
+Romania,2020Q4,PSD,83,0.0352,,0.95,0.95,estimated,0.4926,0.289,BEC 1 dec 2020,verified

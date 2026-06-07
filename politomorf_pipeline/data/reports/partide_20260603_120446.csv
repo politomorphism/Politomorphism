@@ -1,0 +1,8 @@
+﻿partid,articole,mentiuni,sentiment,ci_lower,ci_upper,std,srm,isc,bloc,sufficient
+PSD,5,7,-0.4286,-0.8571,-0.1429,0.4949,2.3067,0.7551,stanga,True
+PNL,3,8,-0.2857,-0.5714,0.0,0.4518,0.9767,0.7959,dreapta,False
+USR,2,4,-0.5,-1.0,0.0,0.5,1.0595,0.75,centru-dreapta,False
+AUR,1,4,-0.5,-1.0,0.0,0.5,0.5298,0.75,nationalist,False
+UDMR,1,1,0.0,,,0.0,0.05,1.0,minoritar,False
+POT,6,10,0.0,0.0,0.0,0.0,0.3,1.0,populist,True
+REPER,1,1,0.0,,,0.0,0.05,1.0,centru,False

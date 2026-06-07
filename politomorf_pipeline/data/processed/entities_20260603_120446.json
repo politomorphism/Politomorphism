@@ -1,0 +1,338 @@
+{
+  "party_data": {
+    "PSD": {
+      "article_count": 5,
+      "mentions_total": 7,
+      "bloc": "stanga",
+      "gov": true,
+      "grup_camera": 86,
+      "source_dist": {
+        "mainstream": 2,
+        "general": 3
+      },
+      "relevant_sentences": [
+        "Sorin Grindeanu cere ca generalul Vlad Gheorghiță să plece de la șefia Armatei Române: „România nu își permite astfel de incertitudini” Sorin Grindeanu cere ca generalul Vlad Gheorghiță să plece de la",
+        "Primul chemat la Cotroceni a fost Ilie Bolojan, marți, după ce PNL și USR au transmis că nu vor vota un Executiv, fie el și tehnocrat, dacă va include oameni ai PSD",
+        "În plină criză politică, un ham a unit la Senat parlamentarii PSD, PNL, USR, AUR și PACE",
+        "” În plină criză politică, un ham a unit la Senat parlamentarii PSD, PNL, USR, AUR și PACE",
+        "Potrivit proiectului de lege inițiat de mai mulți senatori PNL, PSD, USR și AUR, ținerea câinilor legați &#8230;",
+        "Fostul ministru Darius Vîlcov, eliberat condiționat după ce a făcut 3 ani din cei 5 ani de închisoare la care a fost condamnat în „dosarul tablourilor” Fostul ministru Darius Vîlcov, eliberat condițio",
+        "Sorin Grindeanu cere demisia lui Gheorghiță Vlad: „Ar fi un gest firesc” Sorin Grindeanu cere demisia lui Gheorghiță Vlad: „Ar fi un gest firesc” Liderul PSD, Sorin Grindeanu, cere demisia șefului Sta"
+      ],
+      "sufficient_data": true,
+      "articles": [
+        {
+          "title": "Sorin Grindeanu cere ca generalul Vlad Gheorghiță să plece de la șefia Armatei Române: „România nu își permite astfel de incertitudini”",
+          "link": "https://www.digi24.ro/stiri/actualitate/politica/sorin-grindeanu-cere-ca-generalul-vlad-gheorghita-sa-plece-de-la-sefia-armatei-romane-freactia-lideru-3797901",
+          "source_type": "mainstream"
+        },
+        {
+          "title": "Nicușor Dan i-a chemat din nou la discuții pe Bolojan, Grindeanu și Fritz. Șeful statului insistă să aibă majoritate pentru noul Guvern",
+          "link": "https://www.digi24.ro/stiri/actualitate/politica/nicusor-dan-i-a-chemat-din-nou-la-discutii-pe-bolojan-grindeanu-si-fritz-seful-statului-insista-sa-aiba-majoritate-pentru-noul-guvern-3797895",
+          "source_type": "mainstream"
+        },
+        {
+          "title": "În plină criză politică, un ham a unit la Senat parlamentarii PSD, PNL, USR, AUR și PACE. „O lege extraordinară, dar cum o aplicăm?”",
+          "link": "https://hotnews.ro/in-plina-criza-politica-un-ham-a-unit-la-senat-parlamentarii-psd-pnl-usr-aur-si-pace-o-lege-extraordinara-dar-cum-o-aplicam-2262804",
+          "source_type": "general"
+        },
+        {
+          "title": "Fostul ministru Darius Vîlcov, eliberat condiționat după ce a făcut 3 ani din cei 5 ani de închisoare la care a fost condamnat în „dosarul tablourilor”",
+          "link": "https://hotnews.ro/fostul-ministru-darius-vilcov-eliberat-conditionat-dupa-ce-a-facut-3-ani-din-cei-5-ani-de-inchisoare-la-care-a-fost-condamnat-in-dosarul-tablourilor-2262746",
+          "source_type": "general"
+        },
+        {
+          "title": "Sorin Grindeanu cere demisia lui Gheorghiță Vlad: „Ar fi un gest firesc”",
+          "link": "https://hotnews.ro/sorin-grindeanu-cere-demisia-lui-gheorghita-vlad-ar-fi-un-gest-firesc-2262594",
+          "source_type": "general"
+        }
+      ]
+    },
+    "PNL": {
+      "article_count": 3,
+      "mentions_total": 8,
+      "bloc": "dreapta",
+      "gov": true,
+      "grup_camera": 56,
+      "source_dist": {
+        "mainstream": 2,
+        "general": 1
+      },
+      "relevant_sentences": [
+        "Primul chemat la Cotroceni a fost Ilie Bolojan, marți, după ce PNL și USR au transmis că nu vor vota un Executiv, fie el și tehnocrat, dacă va include oameni ai PSD",
+        "Cred că PNL trebuie să îşi păstreze identitatea şi direcţia clară de partid de centru-dreapta, pro-european şi reformist Bolojan s-a întâlnit cu preşedintele PPE, Manfred Weber: Am discutat deschis de",
+        "Cred că PNL trebuie să îşi păstreze identitatea şi direcţia clară de partid de centru-dreapta, pro-european şi reformist Preşedintele PNL, Ilie Bolojan, afirmă că a avut, miercuri, o discuţie foarte b",
+        "El mai spune că a discutat deschis şi despre situaţia politică din România şi crede că PNL trebuie să îşi păstreze identitatea şi direcţia clară de partid de centru-dreapta, pro-european şi reformist",
+        "În plină criză politică, un ham a unit la Senat parlamentarii PSD, PNL, USR, AUR și PACE",
+        "” În plină criză politică, un ham a unit la Senat parlamentarii PSD, PNL, USR, AUR și PACE",
+        "Potrivit proiectului de lege inițiat de mai mulți senatori PNL, PSD, USR și AUR, ținerea câinilor legați &#8230;"
+      ],
+      "sufficient_data": false,
+      "articles": [
+        {
+          "title": "Nicușor Dan i-a chemat din nou la discuții pe Bolojan, Grindeanu și Fritz. Șeful statului insistă să aibă majoritate pentru noul Guvern",
+          "link": "https://www.digi24.ro/stiri/actualitate/politica/nicusor-dan-i-a-chemat-din-nou-la-discutii-pe-bolojan-grindeanu-si-fritz-seful-statului-insista-sa-aiba-majoritate-pentru-noul-guvern-3797895",
+          "source_type": "mainstream"
+        },
+        {
+          "title": "Bolojan s-a întâlnit cu preşedintele PPE, Manfred Weber: Am discutat deschis despre situaţia politică din România. Cred că PNL trebuie să îşi păstreze identitatea şi direcţia clară de partid de centru-dreapta, pro-european şi reformist",
+          "link": "https://www.news.ro/politic-intern/bolojan-s-intalnit-presedintele-ppe-manfred-weber-discutat-deschis-situatia-politica-romania-cred-pnl-isi-pastreze-identitatea-directia-clara-partid-centru-dreapta-pro-european-reformist-1922400003002026061522467239",
+          "source_type": "mainstream"
+        },
+        {
+          "title": "În plină criză politică, un ham a unit la Senat parlamentarii PSD, PNL, USR, AUR și PACE. „O lege extraordinară, dar cum o aplicăm?”",
+          "link": "https://hotnews.ro/in-plina-criza-politica-un-ham-a-unit-la-senat-parlamentarii-psd-pnl-usr-aur-si-pace-o-lege-extraordinara-dar-cum-o-aplicam-2262804",
+          "source_type": "general"
+        }
+      ]
+    },
+    "USR": {
+      "article_count": 2,
+      "mentions_total": 4,
+      "bloc": "centru-dreapta",
+      "gov": true,
+      "grup_camera": 52,
+      "source_dist": {
+        "mainstream": 1,
+        "general": 1
+      },
+      "relevant_sentences": [
+        "Primul chemat la Cotroceni a fost Ilie Bolojan, marți, după ce PNL și USR au transmis că nu vor vota un Executiv, fie el și tehnocrat, dacă va include oameni ai PSD",
+        "În plină criză politică, un ham a unit la Senat parlamentarii PSD, PNL, USR, AUR și PACE",
+        "” În plină criză politică, un ham a unit la Senat parlamentarii PSD, PNL, USR, AUR și PACE",
+        "Potrivit proiectului de lege inițiat de mai mulți senatori PNL, PSD, USR și AUR, ținerea câinilor legați &#8230;"
+      ],
+      "sufficient_data": false,
+      "articles": [
+        {
+          "title": "Nicușor Dan i-a chemat din nou la discuții pe Bolojan, Grindeanu și Fritz. Șeful statului insistă să aibă majoritate pentru noul Guvern",
+          "link": "https://www.digi24.ro/stiri/actualitate/politica/nicusor-dan-i-a-chemat-din-nou-la-discutii-pe-bolojan-grindeanu-si-fritz-seful-statului-insista-sa-aiba-majoritate-pentru-noul-guvern-3797895",
+          "source_type": "mainstream"
+        },
+        {
+          "title": "În plină criză politică, un ham a unit la Senat parlamentarii PSD, PNL, USR, AUR și PACE. „O lege extraordinară, dar cum o aplicăm?”",
+          "link": "https://hotnews.ro/in-plina-criza-politica-un-ham-a-unit-la-senat-parlamentarii-psd-pnl-usr-aur-si-pace-o-lege-extraordinara-dar-cum-o-aplicam-2262804",
+          "source_type": "general"
+        }
+      ]
+    },
+    "AUR": {
+      "article_count": 1,
+      "mentions_total": 4,
+      "bloc": "nationalist",
+      "gov": false,
+      "grup_camera": 62,
+      "source_dist": {
+        "general": 1
+      },
+      "relevant_sentences": [
+        "În plină criză politică, un ham a unit la Senat parlamentarii PSD, PNL, USR, AUR și PACE",
+        "” În plină criză politică, un ham a unit la Senat parlamentarii PSD, PNL, USR, AUR și PACE",
+        "” Un proiect care modifică legea pentru protecția animalelor a trecut marți cu votul senatorilor din toate partidele, inclusiv AUR și PACE",
+        "Potrivit proiectului de lege inițiat de mai mulți senatori PNL, PSD, USR și AUR, ținerea câinilor legați &#8230;"
+      ],
+      "sufficient_data": false,
+      "articles": [
+        {
+          "title": "În plină criză politică, un ham a unit la Senat parlamentarii PSD, PNL, USR, AUR și PACE. „O lege extraordinară, dar cum o aplicăm?”",
+          "link": "https://hotnews.ro/in-plina-criza-politica-un-ham-a-unit-la-senat-parlamentarii-psd-pnl-usr-aur-si-pace-o-lege-extraordinara-dar-cum-o-aplicam-2262804",
+          "source_type": "general"
+        }
+      ]
+    },
+    "UDMR": {
+      "article_count": 1,
+      "mentions_total": 1,
+      "bloc": "minoritar",
+      "gov": true,
+      "grup_camera": 21,
+      "source_dist": {
+        "mainstream": 1
+      },
+      "relevant_sentences": [
+        "Tanczos Barna: Am cerut prelungirea plafonării adaosului comercial la alimentele de bază până la sfârşitul anului / Comisia pentru agricultură a Camerei Deputaţilor a votat prelungirea Tanczos Barna: "
+      ],
+      "sufficient_data": false,
+      "articles": [
+        {
+          "title": "Tanczos Barna: Am cerut prelungirea plafonării adaosului comercial la alimentele de bază până la sfârşitul anului / Comisia pentru agricultură a Camerei Deputaţilor a votat prelungirea",
+          "link": "https://www.news.ro/economic/tanczos-barna-am-cerut-prelungirea-plafonarii-adaosului-comercial-la-alimentele-de-baza-pana-la-sfarsitul-anului-comisia-pentru-agricultura-a-camerei-deputatilor-a-votat-prelungirea-1922405803162026061422467242",
+          "source_type": "mainstream"
+        }
+      ]
+    },
+    "POT": {
+      "article_count": 6,
+      "mentions_total": 10,
+      "bloc": "populist",
+      "gov": false,
+      "grup_camera": 19,
+      "source_dist": {
+        "mainstream": 4,
+        "general": 2
+      },
+      "relevant_sentences": [
+        "Miliardarii Rusiei se tem că își pot pierde imperiile: Vladimir Putin accelerează confiscările de active Miliardarii Rusiei se tem că își pot pierde imperiile: Vladimir Putin accelerează confiscările ",
+        "Moscova dezvăluie cât de mult și-a crescut industria militară în ultimii ani Întreprinderile autohtone pot asigura livrarea a peste 15",
+        "„Întreprinderile autohtone pot asigura deja astăzi livrarea a peste 15 mii de unități pe zi numai de drone FPV, iar în 2023 o astfel de cantitate era produsă lunar”, a spus Manturov",
+        "Investigația care poate arăta cu precizie extinderea bolii prostatice Investigația care poate arăta cu precizie extinderea bolii prostatice În anumite situații, tratamentul oncologic depinde de identi",
+        "Diana Buzoianu vrea sancţiuni mai dure pentru combaterea fenomenului balastierelor ilegale: Operatorii care nu au respectat legislaţia şi în 3 ani nu şi-au realizat lucrările, nu mai pot obţine avize ",
+        "Noua lege limitează, printre altele, timpul în care câinii pot fi ținuți legați în timpul unei zile",
+        "Contractul apare la capitolul „echipamente cu utilizare duală”, care pot fi folosite militar și civil"
+      ],
+      "sufficient_data": true,
+      "articles": [
+        {
+          "title": "Miliardarii Rusiei se tem că își pot pierde imperiile: Vladimir Putin accelerează confiscările de active",
+          "link": "https://www.digi24.ro/stiri/externe/rusia/miliardarii-rusiei-se-tem-ca-isi-pot-pierde-imperiile-vladimir-putin-accelereaza-confiscarile-de-active-3798311",
+          "source_type": "mainstream"
+        },
+        {
+          "title": "15.000 de drone pe zi. Moscova dezvăluie cât de mult și-a crescut industria militară în ultimii ani",
+          "link": "https://www.digi24.ro/stiri/externe/rusia/15-000-de-drone-pe-zi-moscova-dezvaluie-cat-de-mult-si-a-crescut-industria-militara-in-ultimii-ani-3798151",
+          "source_type": "mainstream"
+        },
+        {
+          "title": "Investigația care poate arăta cu precizie extinderea bolii prostatice",
+          "link": "https://www.digi24.ro/sanatate-digimatinal/investigatia-care-poate-arata-cu-precizie-extinderea-bolii-prostatice-3792163",
+          "source_type": "mainstream"
+        },
+        {
+          "title": "Diana Buzoianu vrea sancţiuni mai dure pentru combaterea fenomenului balastierelor ilegale: Operatorii care nu au respectat legislaţia şi în 3 ani nu şi-au realizat lucrările, nu mai pot obţine avize de gospodărire a apelor, timp de 5 ani",
+          "link": "https://www.news.ro/social/diana-buzoianu-vrea-sanctiuni-dure-combaterea-fenomenului-balastierelor-ilegale-operatorii-au-respectat-legislatia-3-ani-au-realizat-lucrarile-pot-obtine-avize-gospodarire-apelor-timp-5-ani-1922404003002026061422467215",
+          "source_type": "mainstream"
+        },
+        {
+          "title": "În plină criză politică, un ham a unit la Senat parlamentarii PSD, PNL, USR, AUR și PACE. „O lege extraordinară, dar cum o aplicăm?”",
+          "link": "https://hotnews.ro/in-plina-criza-politica-un-ham-a-unit-la-senat-parlamentarii-psd-pnl-usr-aur-si-pace-o-lege-extraordinara-dar-cum-o-aplicam-2262804",
+          "source_type": "general"
+        },
+        {
+          "title": "Guvernul Bolojan comunică acordarea unui contract de 196 de milioane de euro din SAFE către Digi România SA / „E un contract semnat la nivelul SRI”, a spus purtătoarea de cuvânt a Guvernului / Ce s-a angajat Digi să facă",
+          "link": "https://hotnews.ro/guvernul-bolojan-comunica-acordarea-unui-contract-de-196-de-milioane-de-euro-din-safe-catre-digi-romania-sa-2262749",
+          "source_type": "general"
+        }
+      ]
+    },
+    "REPER": {
+      "article_count": 1,
+      "mentions_total": 1,
+      "bloc": "centru",
+      "gov": false,
+      "grup_camera": 7,
+      "source_dist": {
+        "analiza": 1
+      },
+      "relevant_sentences": [
+        "În orice caz, cele trei mari tururi cicliste europene sunt un reper [&#8230;]</p>\n<p>Articolul <a href=\"https://www"
+      ],
+      "sufficient_data": false,
+      "articles": [
+        {
+          "title": "O sută nouă motive să dăruim aplauze turului ciclist al Italiei!",
+          "link": "https://www.contributors.ro/o-suta-noua-motive-sa-daruim-aplauze-turului-ciclist-al-italiei/",
+          "source_type": "analiza"
+        }
+      ]
+    }
+  },
+  "teme_dominante": [
+    [
+      "Salarizare / Proteste",
+      10
+    ],
+    [
+      "Securitate / NATO",
+      6
+    ],
+    [
+      "Criza guvernamentala",
+      5
+    ],
+    [
+      "AUR / Suveranism",
+      5
+    ],
+    [
+      "Justitie / Coruptie",
+      4
+    ],
+    [
+      "Economie / Inflatie",
+      3
+    ],
+    [
+      "Sanatate / Educatie",
+      3
+    ],
+    [
+      "Buget / Deficit",
+      2
+    ],
+    [
+      "Infrastructura / Trafic",
+      1
+    ],
+    [
+      "Neincredere / Anticoalitie",
+      1
+    ]
+  ],
+  "ner_stats": {
+    "total_articles": 37,
+    "political_articles": 13,
+    "parties_detected": [
+      "PSD",
+      "PNL",
+      "USR",
+      "AUR",
+      "UDMR",
+      "POT",
+      "REPER"
+    ],
+    "teme_dominante": [
+      [
+        "Salarizare / Proteste",
+        10
+      ],
+      [
+        "Securitate / NATO",
+        6
+      ],
+      [
+        "Criza guvernamentala",
+        5
+      ],
+      [
+        "AUR / Suveranism",
+        5
+      ],
+      [
+        "Justitie / Coruptie",
+        4
+      ],
+      [
+        "Economie / Inflatie",
+        3
+      ],
+      [
+        "Sanatate / Educatie",
+        3
+      ],
+      [
+        "Buget / Deficit",
+        2
+      ],
+      [
+        "Infrastructura / Trafic",
+        1
+      ],
+      [
+        "Neincredere / Anticoalitie",
+        1
+      ]
+    ],
+    "spacy_available": false
+  },
+  "parl_items": []
+}

@@ -1,0 +1,611 @@
+{
+  "timestamp": "20260603_120446",
+  "total_articles": 37,
+  "eef": 0.6268,
+  "entropy_H": 1.7596,
+  "eef_interpretation": "moderat",
+  "indices": {
+    "IRS": {
+      "value": 0.1892,
+      "formula": "N_extremist/N_total",
+      "label": "Radicalizare Simbolica",
+      "interpretation": "moderat"
+    },
+    "ICCP": {
+      "value": 0.8252,
+      "formula": "1-mean(sigma_gov^2)",
+      "label": "Coeziune Camp Politic",
+      "interpretation": "coeziv"
+    },
+    "IVS": {
+      "value": 0.1095,
+      "formula": "EEF*mean(sigma^2)",
+      "label": "Volatilitate Simbolica",
+      "interpretation": "mediu"
+    },
+    "EEF": {
+      "value": 0.6268,
+      "formula": "H/H_max",
+      "label": "Entropie Ecosistem",
+      "interpretation": "moderat"
+    }
+  },
+  "party_data": {
+    "PSD": {
+      "article_count": 5,
+      "mentions_total": 7,
+      "bloc": "stanga",
+      "gov": true,
+      "grup_camera": 86,
+      "source_dist": {
+        "mainstream": 2,
+        "general": 3
+      },
+      "sufficient_data": true,
+      "articles": [
+        {
+          "title": "Sorin Grindeanu cere ca generalul Vlad Gheorghiță să plece de la șefia Armatei Române: „România nu își permite astfel de incertitudini”",
+          "link": "https://www.digi24.ro/stiri/actualitate/politica/sorin-grindeanu-cere-ca-generalul-vlad-gheorghita-sa-plece-de-la-sefia-armatei-romane-freactia-lideru-3797901",
+          "source_type": "mainstream"
+        },
+        {
+          "title": "Nicușor Dan i-a chemat din nou la discuții pe Bolojan, Grindeanu și Fritz. Șeful statului insistă să aibă majoritate pentru noul Guvern",
+          "link": "https://www.digi24.ro/stiri/actualitate/politica/nicusor-dan-i-a-chemat-din-nou-la-discutii-pe-bolojan-grindeanu-si-fritz-seful-statului-insista-sa-aiba-majoritate-pentru-noul-guvern-3797895",
+          "source_type": "mainstream"
+        },
+        {
+          "title": "În plină criză politică, un ham a unit la Senat parlamentarii PSD, PNL, USR, AUR și PACE. „O lege extraordinară, dar cum o aplicăm?”",
+          "link": "https://hotnews.ro/in-plina-criza-politica-un-ham-a-unit-la-senat-parlamentarii-psd-pnl-usr-aur-si-pace-o-lege-extraordinara-dar-cum-o-aplicam-2262804",
+          "source_type": "general"
+        },
+        {
+          "title": "Fostul ministru Darius Vîlcov, eliberat condiționat după ce a făcut 3 ani din cei 5 ani de închisoare la care a fost condamnat în „dosarul tablourilor”",
+          "link": "https://hotnews.ro/fostul-ministru-darius-vilcov-eliberat-conditionat-dupa-ce-a-facut-3-ani-din-cei-5-ani-de-inchisoare-la-care-a-fost-condamnat-in-dosarul-tablourilor-2262746",
+          "source_type": "general"
+        },
+        {
+          "title": "Sorin Grindeanu cere demisia lui Gheorghiță Vlad: „Ar fi un gest firesc”",
+          "link": "https://hotnews.ro/sorin-grindeanu-cere-demisia-lui-gheorghita-vlad-ar-fi-un-gest-firesc-2262594",
+          "source_type": "general"
+        }
+      ],
+      "sentiment_mean": -0.4286,
+      "sentiment_ci_lower": -0.8571,
+      "sentiment_ci_upper": -0.1429,
+      "sentiment_std": 0.4949,
+      "n_sentiment": 7,
+      "srm": 2.3067,
+      "isc": 0.7551
+    },
+    "PNL": {
+      "article_count": 3,
+      "mentions_total": 8,
+      "bloc": "dreapta",
+      "gov": true,
+      "grup_camera": 56,
+      "source_dist": {
+        "mainstream": 2,
+        "general": 1
+      },
+      "sufficient_data": false,
+      "articles": [
+        {
+          "title": "Nicușor Dan i-a chemat din nou la discuții pe Bolojan, Grindeanu și Fritz. Șeful statului insistă să aibă majoritate pentru noul Guvern",
+          "link": "https://www.digi24.ro/stiri/actualitate/politica/nicusor-dan-i-a-chemat-din-nou-la-discutii-pe-bolojan-grindeanu-si-fritz-seful-statului-insista-sa-aiba-majoritate-pentru-noul-guvern-3797895",
+          "source_type": "mainstream"
+        },
+        {
+          "title": "Bolojan s-a întâlnit cu preşedintele PPE, Manfred Weber: Am discutat deschis despre situaţia politică din România. Cred că PNL trebuie să îşi păstreze identitatea şi direcţia clară de partid de centru-dreapta, pro-european şi reformist",
+          "link": "https://www.news.ro/politic-intern/bolojan-s-intalnit-presedintele-ppe-manfred-weber-discutat-deschis-situatia-politica-romania-cred-pnl-isi-pastreze-identitatea-directia-clara-partid-centru-dreapta-pro-european-reformist-1922400003002026061522467239",
+          "source_type": "mainstream"
+        },
+        {
+          "title": "În plină criză politică, un ham a unit la Senat parlamentarii PSD, PNL, USR, AUR și PACE. „O lege extraordinară, dar cum o aplicăm?”",
+          "link": "https://hotnews.ro/in-plina-criza-politica-un-ham-a-unit-la-senat-parlamentarii-psd-pnl-usr-aur-si-pace-o-lege-extraordinara-dar-cum-o-aplicam-2262804",
+          "source_type": "general"
+        }
+      ],
+      "sentiment_mean": -0.2857,
+      "sentiment_ci_lower": -0.5714,
+      "sentiment_ci_upper": 0.0,
+      "sentiment_std": 0.4518,
+      "n_sentiment": 7,
+      "srm": 0.9767,
+      "isc": 0.7959
+    },
+    "USR": {
+      "article_count": 2,
+      "mentions_total": 4,
+      "bloc": "centru-dreapta",
+      "gov": true,
+      "grup_camera": 52,
+      "source_dist": {
+        "mainstream": 1,
+        "general": 1
+      },
+      "sufficient_data": false,
+      "articles": [
+        {
+          "title": "Nicușor Dan i-a chemat din nou la discuții pe Bolojan, Grindeanu și Fritz. Șeful statului insistă să aibă majoritate pentru noul Guvern",
+          "link": "https://www.digi24.ro/stiri/actualitate/politica/nicusor-dan-i-a-chemat-din-nou-la-discutii-pe-bolojan-grindeanu-si-fritz-seful-statului-insista-sa-aiba-majoritate-pentru-noul-guvern-3797895",
+          "source_type": "mainstream"
+        },
+        {
+          "title": "În plină criză politică, un ham a unit la Senat parlamentarii PSD, PNL, USR, AUR și PACE. „O lege extraordinară, dar cum o aplicăm?”",
+          "link": "https://hotnews.ro/in-plina-criza-politica-un-ham-a-unit-la-senat-parlamentarii-psd-pnl-usr-aur-si-pace-o-lege-extraordinara-dar-cum-o-aplicam-2262804",
+          "source_type": "general"
+        }
+      ],
+      "sentiment_mean": -0.5,
+      "sentiment_ci_lower": -1.0,
+      "sentiment_ci_upper": 0.0,
+      "sentiment_std": 0.5,
+      "n_sentiment": 4,
+      "srm": 1.0595,
+      "isc": 0.75
+    },
+    "AUR": {
+      "article_count": 1,
+      "mentions_total": 4,
+      "bloc": "nationalist",
+      "gov": false,
+      "grup_camera": 62,
+      "source_dist": {
+        "general": 1
+      },
+      "sufficient_data": false,
+      "articles": [
+        {
+          "title": "În plină criză politică, un ham a unit la Senat parlamentarii PSD, PNL, USR, AUR și PACE. „O lege extraordinară, dar cum o aplicăm?”",
+          "link": "https://hotnews.ro/in-plina-criza-politica-un-ham-a-unit-la-senat-parlamentarii-psd-pnl-usr-aur-si-pace-o-lege-extraordinara-dar-cum-o-aplicam-2262804",
+          "source_type": "general"
+        }
+      ],
+      "sentiment_mean": -0.5,
+      "sentiment_ci_lower": -1.0,
+      "sentiment_ci_upper": 0.0,
+      "sentiment_std": 0.5,
+      "n_sentiment": 4,
+      "srm": 0.5298,
+      "isc": 0.75
+    },
+    "UDMR": {
+      "article_count": 1,
+      "mentions_total": 1,
+      "bloc": "minoritar",
+      "gov": true,
+      "grup_camera": 21,
+      "source_dist": {
+        "mainstream": 1
+      },
+      "sufficient_data": false,
+      "articles": [
+        {
+          "title": "Tanczos Barna: Am cerut prelungirea plafonării adaosului comercial la alimentele de bază până la sfârşitul anului / Comisia pentru agricultură a Camerei Deputaţilor a votat prelungirea",
+          "link": "https://www.news.ro/economic/tanczos-barna-am-cerut-prelungirea-plafonarii-adaosului-comercial-la-alimentele-de-baza-pana-la-sfarsitul-anului-comisia-pentru-agricultura-a-camerei-deputatilor-a-votat-prelungirea-1922405803162026061422467242",
+          "source_type": "mainstream"
+        }
+      ],
+      "sentiment_mean": 0.0,
+      "sentiment_ci_lower": null,
+      "sentiment_ci_upper": null,
+      "sentiment_std": 0.0,
+      "n_sentiment": 1,
+      "srm": 0.05,
+      "isc": 1.0
+    },
+    "POT": {
+      "article_count": 6,
+      "mentions_total": 10,
+      "bloc": "populist",
+      "gov": false,
+      "grup_camera": 19,
+      "source_dist": {
+        "mainstream": 4,
+        "general": 2
+      },
+      "sufficient_data": true,
+      "articles": [
+        {
+          "title": "Miliardarii Rusiei se tem că își pot pierde imperiile: Vladimir Putin accelerează confiscările de active",
+          "link": "https://www.digi24.ro/stiri/externe/rusia/miliardarii-rusiei-se-tem-ca-isi-pot-pierde-imperiile-vladimir-putin-accelereaza-confiscarile-de-active-3798311",
+          "source_type": "mainstream"
+        },
+        {
+          "title": "15.000 de drone pe zi. Moscova dezvăluie cât de mult și-a crescut industria militară în ultimii ani",
+          "link": "https://www.digi24.ro/stiri/externe/rusia/15-000-de-drone-pe-zi-moscova-dezvaluie-cat-de-mult-si-a-crescut-industria-militara-in-ultimii-ani-3798151",
+          "source_type": "mainstream"
+        },
+        {
+          "title": "Investigația care poate arăta cu precizie extinderea bolii prostatice",
+          "link": "https://www.digi24.ro/sanatate-digimatinal/investigatia-care-poate-arata-cu-precizie-extinderea-bolii-prostatice-3792163",
+          "source_type": "mainstream"
+        },
+        {
+          "title": "Diana Buzoianu vrea sancţiuni mai dure pentru combaterea fenomenului balastierelor ilegale: Operatorii care nu au respectat legislaţia şi în 3 ani nu şi-au realizat lucrările, nu mai pot obţine avize de gospodărire a apelor, timp de 5 ani",
+          "link": "https://www.news.ro/social/diana-buzoianu-vrea-sanctiuni-dure-combaterea-fenomenului-balastierelor-ilegale-operatorii-au-respectat-legislatia-3-ani-au-realizat-lucrarile-pot-obtine-avize-gospodarire-apelor-timp-5-ani-1922404003002026061422467215",
+          "source_type": "mainstream"
+        },
+        {
+          "title": "În plină criză politică, un ham a unit la Senat parlamentarii PSD, PNL, USR, AUR și PACE. „O lege extraordinară, dar cum o aplicăm?”",
+          "link": "https://hotnews.ro/in-plina-criza-politica-un-ham-a-unit-la-senat-parlamentarii-psd-pnl-usr-aur-si-pace-o-lege-extraordinara-dar-cum-o-aplicam-2262804",
+          "source_type": "general"
+        },
+        {
+          "title": "Guvernul Bolojan comunică acordarea unui contract de 196 de milioane de euro din SAFE către Digi România SA / „E un contract semnat la nivelul SRI”, a spus purtătoarea de cuvânt a Guvernului / Ce s-a angajat Digi să facă",
+          "link": "https://hotnews.ro/guvernul-bolojan-comunica-acordarea-unui-contract-de-196-de-milioane-de-euro-din-safe-catre-digi-romania-sa-2262749",
+          "source_type": "general"
+        }
+      ],
+      "sentiment_mean": 0.0,
+      "sentiment_ci_lower": 0.0,
+      "sentiment_ci_upper": 0.0,
+      "sentiment_std": 0.0,
+      "n_sentiment": 7,
+      "srm": 0.3,
+      "isc": 1.0
+    },
+    "REPER": {
+      "article_count": 1,
+      "mentions_total": 1,
+      "bloc": "centru",
+      "gov": false,
+      "grup_camera": 7,
+      "source_dist": {
+        "analiza": 1
+      },
+      "sufficient_data": false,
+      "articles": [
+        {
+          "title": "O sută nouă motive să dăruim aplauze turului ciclist al Italiei!",
+          "link": "https://www.contributors.ro/o-suta-noua-motive-sa-daruim-aplauze-turului-ciclist-al-italiei/",
+          "source_type": "analiza"
+        }
+      ],
+      "sentiment_mean": 0.0,
+      "sentiment_ci_lower": null,
+      "sentiment_ci_upper": null,
+      "sentiment_std": 0.0,
+      "n_sentiment": 1,
+      "srm": 0.05,
+      "isc": 1.0
+    }
+  },
+  "adj_polls": {
+    "PSD": {
+      "point": 24.38,
+      "lower": 23.75,
+      "upper": 24.8,
+      "delta": 1.12,
+      "valid": true
+    },
+    "PNL": {
+      "point": 19.8,
+      "lower": 19.39,
+      "upper": 19.8,
+      "delta": 0.4,
+      "valid": false
+    },
+    "USR": {
+      "point": 9.75,
+      "lower": 9.03,
+      "upper": 9.75,
+      "delta": 0.05,
+      "valid": false
+    },
+    "AUR": {
+      "point": 30.72,
+      "lower": 29.99,
+      "upper": 30.72,
+      "delta": -0.35,
+      "valid": false
+    },
+    "UDMR": {
+      "point": 5.38,
+      "lower": 5.38,
+      "upper": 5.38,
+      "delta": 0.54,
+      "valid": false
+    },
+    "SOS": {
+      "point": 3.4,
+      "lower": 2.43,
+      "upper": 4.37,
+      "delta": 0,
+      "valid": false
+    },
+    "POT": {
+      "point": 3.62,
+      "lower": 3.62,
+      "upper": 3.62,
+      "delta": 0.73,
+      "valid": true
+    },
+    "REPER": {
+      "point": 2.95,
+      "lower": 2.95,
+      "upper": 2.95,
+      "delta": 0.54,
+      "valid": false
+    }
+  },
+  "baseline": {
+    "AUR": 32.0,
+    "PSD": 24.0,
+    "PNL": 20.0,
+    "USR": 10.0,
+    "UDMR": 5.0,
+    "SOS": 3.5,
+    "POT": 3.0,
+    "REPER": 2.5
+  },
+  "scenarios": {
+    "baseline": {
+      "label": "Baseline",
+      "seats": {
+        "PSD": 89,
+        "PNL": 73,
+        "USR": 36,
+        "AUR": 113,
+        "UDMR": 20
+      },
+      "coalitions": [
+        {
+          "name": "Coalitie actuala (PSD+PNL+USR+UDMR)",
+          "seats": 218,
+          "viable": true
+        },
+        {
+          "name": "Nationalisti (AUR+SOS+POT)",
+          "seats": 113,
+          "viable": false
+        },
+        {
+          "name": "PSD+AUR",
+          "seats": 202,
+          "viable": true
+        },
+        {
+          "name": "Dreapta (PNL+USR+REPER+UDMR)",
+          "seats": 129,
+          "viable": false
+        }
+      ],
+      "prob": 0.46
+    },
+    "fragmentare": {
+      "label": "Fragmentare (AUR/SOS/POT cresc)",
+      "seats": {
+        "PSD": 85,
+        "PNL": 69,
+        "USR": 34,
+        "AUR": 124,
+        "UDMR": 19
+      },
+      "coalitions": [
+        {
+          "name": "Coalitie actuala (PSD+PNL+USR+UDMR)",
+          "seats": 207,
+          "viable": true
+        },
+        {
+          "name": "Nationalisti (AUR+SOS+POT)",
+          "seats": 124,
+          "viable": false
+        },
+        {
+          "name": "PSD+AUR",
+          "seats": 209,
+          "viable": true
+        },
+        {
+          "name": "Dreapta (PNL+USR+REPER+UDMR)",
+          "seats": 122,
+          "viable": false
+        }
+      ],
+      "prob": 0.25
+    },
+    "consolidare": {
+      "label": "Consolidare coalitie",
+      "seats": {
+        "PSD": 89,
+        "PNL": 73,
+        "USR": 36,
+        "AUR": 113,
+        "UDMR": 20
+      },
+      "coalitions": [
+        {
+          "name": "Coalitie actuala (PSD+PNL+USR+UDMR)",
+          "seats": 218,
+          "viable": true
+        },
+        {
+          "name": "Nationalisti (AUR+SOS+POT)",
+          "seats": 113,
+          "viable": false
+        },
+        {
+          "name": "PSD+AUR",
+          "seats": 202,
+          "viable": true
+        },
+        {
+          "name": "Dreapta (PNL+USR+REPER+UDMR)",
+          "seats": 129,
+          "viable": false
+        }
+      ],
+      "prob": 0.15
+    }
+  },
+  "disidenta": {
+    "PSD": {
+      "scor": 0.5814,
+      "scor_vot_explicit": 0.25,
+      "scor_absenteism": 0.9535,
+      "scor_disidenta_pct": 58.14,
+      "prezenta_medie": 4.7,
+      "alarme": 1,
+      "n_voturi": 1,
+      "exemple": [
+        "Absenta 95% la: Lege organica privind salarizarea unitara (fallback structur"
+      ],
+      "formula": "SD=0.5814=SVE(0.2500)*0.6+SA(0.9535)*0.4",
+      "alerta_fractura": true,
+      "interpretare": "CRIZA INTERNA"
+    },
+    "PNL": {
+      "scor": 0.6286,
+      "scor_vot_explicit": 0.3333,
+      "scor_absenteism": 0.9464,
+      "scor_disidenta_pct": 62.86,
+      "prezenta_medie": 5.4,
+      "alarme": 1,
+      "n_voturi": 1,
+      "exemple": [
+        "Absenta 95% la: Lege organica privind salarizarea unitara (fallback structur"
+      ],
+      "formula": "SD=0.6286=SVE(0.3333)*0.6+SA(0.9464)*0.4",
+      "alerta_fractura": true,
+      "interpretare": "CRIZA INTERNA"
+    },
+    "USR": {
+      "scor": 0.4346,
+      "scor_vot_explicit": 0.0,
+      "scor_absenteism": 0.9615,
+      "scor_disidenta_pct": 43.46,
+      "prezenta_medie": 3.8,
+      "alarme": 1,
+      "n_voturi": 1,
+      "exemple": [
+        "Absenta 96% la: Lege organica privind salarizarea unitara (fallback structur"
+      ],
+      "formula": "SD=0.4346=SVE(0.0000)*0.6+SA(0.9615)*0.4",
+      "alerta_fractura": true,
+      "interpretare": "CRIZA INTERNA"
+    },
+    "AUR": {
+      "scor": 0.4371,
+      "scor_vot_explicit": 0.0,
+      "scor_absenteism": 0.9677,
+      "scor_disidenta_pct": 43.71,
+      "prezenta_medie": 3.2,
+      "alarme": 1,
+      "n_voturi": 1,
+      "exemple": [
+        "Absenta 97% la: Lege organica privind salarizarea unitara (fallback structur"
+      ],
+      "formula": "SD=0.4371=SVE(0.0000)*0.6+SA(0.9677)*0.4",
+      "alerta_fractura": true,
+      "interpretare": "CRIZA INTERNA"
+    }
+  },
+  "teme_dominante": [
+    [
+      "Salarizare / Proteste",
+      10
+    ],
+    [
+      "Securitate / NATO",
+      6
+    ],
+    [
+      "Criza guvernamentala",
+      5
+    ],
+    [
+      "AUR / Suveranism",
+      5
+    ],
+    [
+      "Justitie / Coruptie",
+      4
+    ],
+    [
+      "Economie / Inflatie",
+      3
+    ],
+    [
+      "Sanatate / Educatie",
+      3
+    ],
+    [
+      "Buget / Deficit",
+      2
+    ],
+    [
+      "Infrastructura / Trafic",
+      1
+    ],
+    [
+      "Neincredere / Anticoalitie",
+      1
+    ]
+  ],
+  "parl_items": [],
+  "warnings": [
+    "PNL: doar 3 articole — sub pragul 5",
+    "USR: doar 2 articole — sub pragul 5",
+    "AUR: doar 1 articole — sub pragul 5",
+    "UDMR: doar 1 articole — sub pragul 5",
+    "REPER: doar 1 articole — sub pragul 5"
+  ],
+  "source_stats": {
+    "total_articles": 37,
+    "political_articles": 13,
+    "parties_detected": [
+      "PSD",
+      "PNL",
+      "USR",
+      "AUR",
+      "UDMR",
+      "POT",
+      "REPER"
+    ],
+    "teme_dominante": [
+      [
+        "Salarizare / Proteste",
+        10
+      ],
+      [
+        "Securitate / NATO",
+        6
+      ],
+      [
+        "Criza guvernamentala",
+        5
+      ],
+      [
+        "AUR / Suveranism",
+        5
+      ],
+      [
+        "Justitie / Coruptie",
+        4
+      ],
+      [
+        "Economie / Inflatie",
+        3
+      ],
+      [
+        "Sanatate / Educatie",
+        3
+      ],
+      [
+        "Buget / Deficit",
+        2
+      ],
+      [
+        "Infrastructura / Trafic",
+        1
+      ],
+      [
+        "Neincredere / Anticoalitie",
+        1
+      ]
+    ],
+    "spacy_available": false
+  }
+}

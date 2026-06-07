@@ -1,0 +1,34 @@
+[
+  {
+    "date": "2020-02-25",
+    "quarter": "2020Q1",
+    "speaker": "Mihai-Cătălin Botez",
+    "party": "USR",
+    "text": "Mihai-Cătălin Botez- declaraţie politică intitulată \"Viaţa înainte de toate! Siguranţa pe drumurile României\";",
+    "text_length": 110
+  },
+  {
+    "date": "2020-05-06",
+    "quarter": "2020Q2",
+    "speaker": "Dumitru Lupescu",
+    "party": "USR",
+    "text": "Dumitru Lupescu- declaraţie politică: \"Dreptul la viaţă şi mediu sănătos! Iresponsabilitatea aleşilor locali şi reprezentanţilor statului din judeţul Dâmboviţa faţă de sănătatea publică a cetăţenilor\";",
+    "text_length": 201
+  },
+  {
+    "date": "2020-05-06",
+    "quarter": "2020Q2",
+    "speaker": "Mihai Cătălin Botez",
+    "party": "USR",
+    "text": "Mihai Cătălin Botez- apel către autorităţi în vederea unei contabilizări corecte a cazurilor de decese cauzate doar de COVID-19;",
+    "text_length": 128
+  },
+  {
+    "date": "2020-06-03",
+    "quarter": "2020Q2",
+    "speaker": "Ilie Dan Barna",
+    "party": "USR",
+    "text": "Ilie Dan Barna- declaraţie politică intitulată \"Este momentul ca România să arate stabilitate şi solidaritate cu aliaţii americani\";",
+    "text_length": 132
+  }
+]

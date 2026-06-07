@@ -1,0 +1,221 @@
+{
+  "pipeline_version": "v4",
+  "training_timestamp": "2026-05-21T14:05:50.678572Z",
+  "preregistration_doi": "10.17605/OSF.IO/HYDNZ",
+  "dataset": {
+    "path": "training_data_extended.csv",
+    "n_total": 25,
+    "n_events": 24,
+    "pct_events": 96.0
+  },
+  "primary_model": {
+    "name": "RSF",
+    "features": [
+      "CDI",
+      "PE_ICI_gap"
+    ],
+    "cindex_loocv": 0.7208,
+    "cindex_ci_95": [
+      0.7818,
+      0.9517
+    ],
+    "ibs": 0.1102,
+    "ibs_km_baseline": 0.1075,
+    "ibs_improvement_pct": -2.6,
+    "permutation_importance": {
+      "CDI": {
+        "mean": 0.365512367491166,
+        "std": 0.07638366421312565
+      },
+      "PE_ICI_gap": {
+        "mean": 0.0,
+        "std": 0.0
+      }
+    },
+    "model_path": "models\\rsf_pfm_v4.pkl"
+  },
+  "comparator_model": {
+    "name": "Cox PH",
+    "features": [
+      "CDI",
+      "PE_ICI_gap"
+    ],
+    "cindex_loocv": 0.258,
+    "alpha_ridge": 0.1,
+    "model_path": "models\\cox_pfm_v4.pkl"
+  },
+  "robustness_check": {
+    "features": [
+      "ratio_4wk",
+      "decay_rate_4wk"
+    ],
+    "rsf_cindex_loocv": 0.8057
+  },
+  "calibration": {
+    "T12mo": {
+      "predicted": [
+        0.0009591036414565826,
+        0.11145089285714287
+      ],
+      "observed": [
+        0.05882352941176473,
+        0.0
+      ],
+      "MAE": 0.0847
+    },
+    "T24mo": {
+      "predicted": [
+        0.0009591036414565826,
+        0.11145089285714287
+      ],
+      "observed": [
+        0.05882352941176473,
+        0.0
+      ],
+      "MAE": 0.0847
+    }
+  },
+  "jackknife": {
+    "max_influence": 0.1691,
+    "details": [
+      {
+        "symbol": "Liz Truss",
+        "cindex_without": 0.8398,
+        "delta_cindex": 0.1189
+      },
+      {
+        "symbol": "Javier Milei",
+        "cindex_without": 0.8487,
+        "delta_cindex": 0.1278
+      },
+      {
+        "symbol": "Putin",
+        "cindex_without": 0.8514,
+        "delta_cindex": 0.1305
+      },
+      {
+        "symbol": "Modi",
+        "cindex_without": 0.8475,
+        "delta_cindex": 0.1266
+      },
+      {
+        "symbol": "Netanyahu",
+        "cindex_without": 0.8629,
+        "delta_cindex": 0.1421
+      },
+      {
+        "symbol": "Bolsonaro",
+        "cindex_without": 0.8302,
+        "delta_cindex": 0.1093
+      },
+      {
+        "symbol": "Macron",
+        "cindex_without": 0.8365,
+        "delta_cindex": 0.1157
+      },
+      {
+        "symbol": "Orban",
+        "cindex_without": 0.8475,
+        "delta_cindex": 0.1266
+      },
+      {
+        "symbol": "Zelensky",
+        "cindex_without": 0.8525,
+        "delta_cindex": 0.1316
+      },
+      {
+        "symbol": "Erdogan",
+        "cindex_without": 0.8525,
+        "delta_cindex": 0.1316
+      },
+      {
+        "symbol": "Georgescu",
+        "cindex_without": 0.8607,
+        "delta_cindex": 0.1398
+      },
+      {
+        "symbol": "George Simion",
+        "cindex_without": 0.8755,
+        "delta_cindex": 0.1546
+      },
+      {
+        "symbol": "Charlie Hebdo",
+        "cindex_without": 0.8607,
+        "delta_cindex": 0.1398
+      },
+      {
+        "symbol": "Giorgia Meloni",
+        "cindex_without": 0.89,
+        "delta_cindex": 0.1691
+      },
+      {
+        "symbol": "Rishi Sunak",
+        "cindex_without": 0.8558,
+        "delta_cindex": 0.1349
+      },
+      {
+        "symbol": "Keir Starmer",
+        "cindex_without": 0.841,
+        "delta_cindex": 0.1201
+      },
+      {
+        "symbol": "Robert Fico",
+        "cindex_without": 0.8372,
+        "delta_cindex": 0.1163
+      },
+      {
+        "symbol": "Prabowo Subianto",
+        "cindex_without": 0.864,
+        "delta_cindex": 0.1431
+      },
+      {
+        "symbol": "Turkey earthquake",
+        "cindex_without": 0.8607,
+        "delta_cindex": 0.1398
+      },
+      {
+        "symbol": "Niger coup",
+        "cindex_without": 0.8563,
+        "delta_cindex": 0.1355
+      },
+      {
+        "symbol": "Marcel Ciolacu",
+        "cindex_without": 0.8563,
+        "delta_cindex": 0.1355
+      },
+      {
+        "symbol": "Trump",
+        "cindex_without": 0.8404,
+        "delta_cindex": 0.1195
+      },
+      {
+        "symbol": "Donald Trump",
+        "cindex_without": 0.8635,
+        "delta_cindex": 0.1426
+      },
+      {
+        "symbol": "Vladimir Putin",
+        "cindex_without": 0.8591,
+        "delta_cindex": 0.1382
+      },
+      {
+        "symbol": "Narendra Modi",
+        "cindex_without": 0.8552,
+        "delta_cindex": 0.1344
+      }
+    ]
+  },
+  "hyperparameters": {
+    "rsf": {
+      "n_estimators": 500,
+      "min_samples_split": 4,
+      "min_samples_leaf": 2,
+      "max_features": "sqrt",
+      "random_state": 42
+    },
+    "cox": {
+      "alpha": 0.1
+    }
+  },
+  "sha256": "b3affa61998def7802bf534838b63c0f54ae79670ab3ac62245cc5285df4adad"
+}

@@ -1,0 +1,13 @@
+feedparser==6.0.11
+beautifulsoup4==4.12.3
+lxml==5.2.2
+requests==2.32.3
+numpy==1.26.4
+scikit-learn==1.5.2
+pyyaml==6.0.2
+pandas==2.2.2
+scipy==1.13.1
+# Optionale — NLP avansat (recomandat dar nu obligatoriu)
+# spacy>=3.7.0
+# transformers>=4.40.0
+# torch>=2.0.0

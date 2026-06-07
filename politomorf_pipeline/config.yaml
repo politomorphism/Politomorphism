@@ -1,0 +1,146 @@
+# config.yaml — Politomorf Pipeline v4.0
+# Metodologie: OSF 10.17605/OSF.IO/HYDNZ
+
+sources:
+  rss:
+    mainstream:
+      - "https://www.digi24.ro/rss"
+      - "https://stirileprotv.ro/rss.xml"
+      - "https://www.news.ro/rss"
+      - "https://www.mediafax.ro/rss/"
+    investigativ:
+      - "https://www.g4media.ro/feed"
+      - "https://www.spotmedia.ro/rss.xml"
+      - "https://republica.ro/feed"
+    analiza:
+      - "https://www.contributors.ro/feed/"
+      - "https://www.rador.ro/feed/"
+    general:
+      - "https://www.hotnews.ro/rss"
+      - "https://feeds.adevarul.ro/adevarul-stiri-actuale.rss"
+      - "https://www.libertatea.ro/rss"
+
+  cdep:
+    ordine_zi:    "https://www.cdep.ro/pls/caseta/eCaseta2015.OrdineZi"
+    voturi_home:  "https://www.cdep.ro/pls/steno/evote2015.home?idl=1"
+    vot_nominal:  "https://www.cdep.ro/pls/steno/evote2015.data?idv={vot_id}"
+    steno_home:   "https://www.cdep.ro/pls/steno/steno2015.home?idl=1"
+
+  senat:
+    agenda: "https://www.senat.ro/AgendaSenat.aspx"
+
+email:
+  smtp_server: "smtp.gmail.com"
+  smtp_port:   465
+  use_ssl:     true
+  sender:      ""        # setat din env: GMAIL_USER
+  password:    ""        # setat din env: GMAIL_APP_PASSWORD
+  recipient:   ""        # setat din env: EMAIL_RECIPIENT
+
+praguri:
+  minim_articole_partid: 5
+  alerta_disidenta:      10.0   # procent
+  alerta_absenta:        20.0   # % absenti = alarma
+  bootstrap_n:           500
+  ci_nivel:              0.95
+  max_articole_sursa:    40
+
+partide:
+  PSD:   {bloc: "stanga",         gov: true,  grup_camera: 86}
+  PNL:   {bloc: "dreapta",        gov: true,  grup_camera: 56}
+  USR:   {bloc: "centru-dreapta", gov: true,  grup_camera: 52}
+  AUR:   {bloc: "nationalist",    gov: false, grup_camera: 62}
+  UDMR:  {bloc: "minoritar",      gov: true,  grup_camera: 21}
+  SOS:   {bloc: "extrema-dr",     gov: false, grup_camera: 5}
+  POT:   {bloc: "populist",       gov: false, grup_camera: 19}
+  REPER: {bloc: "centru",         gov: false, grup_camera: 7}
+
+polling_baseline:
+  # Sondaje mai 2026 (INSCOP/CURS)
+  AUR:   32.0
+  PSD:   24.0
+  PNL:   20.0
+  USR:   10.0
+  UDMR:   5.0
+  SOS:    3.5
+  POT:    3.0
+  REPER:  2.5
+
+lideri:
+  "Ilie Bolojan":    PNL
+  "Nicusor Dan":     independent
+  "George Simion":   AUR
+  "Dominic Fritz":   USR
+  "Kelemen Hunor":   UDMR
+  "Diana Sosoacu":   SOS
+  "Sorin Grindeanu": PSD
+  "Catalin Predoiu": PNL
+  "Sebastian Burduja": PNL
+  "Radu Miruta":     USR
+  "Oana Buzoianu":   USR
+  "Cristian Ghinea": USR
+  "Catalin Drula":   USR
+  "Liviu Viziteu":   USR
+  "Peiu":            independent
+  "Dungaciu":        independent
+
+teme_politice:
+  "Criza guvernamentala":
+    - "criza guvernamentala"
+    - "negocieri"
+    - "majoritate parlamentara"
+    - "formare guvern"
+    - "motiune"
+    - "vot incredere"
+  "Salarizare / Proteste":
+    - "salarizare"
+    - "legea salarizarii"
+    - "protest"
+    - "sindicat"
+    - "greva"
+    - "sporuri"
+  "AUR / Suveranism":
+    - "aur"
+    - "george simion"
+    - "suveranism"
+    - "nationalist"
+  "Justitie / Coruptie":
+    - "dna"
+    - "diicot"
+    - "dosar penal"
+    - "arest"
+    - "coruptie"
+  "Buget / Deficit":
+    - "buget"
+    - "deficit"
+    - "fiscal"
+    - "cheltuieli"
+    - "austeritate"
+  "Securitate / NATO":
+    - "nato"
+    - "aparare"
+    - "armata"
+    - "securitate"
+    - "sri"
+  "Infrastructura / Trafic":
+    - "radare"
+    - "monitorizare trafic"
+    - "autostrada"
+    - "infrastructura"
+  "Sanatate / Educatie":
+    - "sanatate"
+    - "spital"
+    - "educatie"
+    - "masa la scoala"
+    - "pensii"
+  "Economie / Inflatie":
+    - "economie"
+    - "inflatie"
+    - "pib"
+    - "investitii"
+    - "crestere economica"
+  "Neincredere / Anticoalitie":
+    - "neincredere"
+    - "nemultumire"
+    - "coruptie sistemica"
+    - "clasa politica"

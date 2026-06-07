@@ -1,0 +1,3 @@
+quarter,cmp,cmp_method,cmp_h,cmp_stable,cmp_ci_lower,cmp_ci_upper,ci_vote,ci_struct,ci,ci_volatility_4q,ci_ambiguity_risk,isc,isc_min,isc_max,isc_range,zone,phase
+2016Q1,0.0817,ensemble_bertopic,0.6365,False,0.0,0.1887,0.9,1.0,0.94,,False,0.5109,0.3392,0.6825,0.3433,MODERATE,Insuficient
+2023Q3,0.0,ensemble_bertopic,0.6931,True,0.0817,0.0817,0.4,0.9722,0.6289,0.3536,True,0.3145,0.1887,0.4402,0.2515,LOW,Colaps

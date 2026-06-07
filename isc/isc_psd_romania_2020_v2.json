@@ -1,0 +1,62 @@
+[
+  {
+    "country": "Romania",
+    "quarter": "2020Q1",
+    "actor": "PSD",
+    "n_texts": 144,
+    "cmp_real": 0.0827,
+    "ci_vote_real": 0.8448,
+    "ci_struct_est": 0.97,
+    "ci_final": 0.8949,
+    "ci_quality": "partial_real",
+    "isc_final": 0.4888,
+    "srm": 0.26,
+    "srm_source": "CURS 30 ian 2020",
+    "srm_quality": "verified"
+  },
+  {
+    "country": "Romania",
+    "quarter": "2020Q2",
+    "actor": "PSD",
+    "n_texts": 106,
+    "cmp_real": 0.0611,
+    "ci_vote_real": 0.9844,
+    "ci_struct_est": 0.98,
+    "ci_final": 0.9826,
+    "ci_quality": "partial_real",
+    "isc_final": 0.5219,
+    "srm": "",
+    "srm_source": "missing",
+    "srm_quality": "missing"
+  },
+  {
+    "country": "Romania",
+    "quarter": "2020Q3",
+    "actor": "PSD",
+    "n_texts": 91,
+    "cmp_real": 0.0566,
+    "ci_vote_real": "",
+    "ci_struct_est": 0.96,
+    "ci_final": 0.96,
+    "ci_quality": "estimated",
+    "isc_final": 0.5083,
+    "srm": "",
+    "srm_source": "missing",
+    "srm_quality": "missing"
+  },
+  {
+    "country": "Romania",
+    "quarter": "2020Q4",
+    "actor": "PSD",
+    "n_texts": 83,
+    "cmp_real": 0.0352,
+    "ci_vote_real": "",
+    "ci_struct_est": 0.95,
+    "ci_final": 0.95,
+    "ci_quality": "estimated",
+    "isc_final": 0.4926,
+    "srm": 0.289,
+    "srm_source": "BEC 1 dec 2020",
+    "srm_quality": "verified"
+  }
+]
