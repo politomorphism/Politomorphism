@@ -1,6 +1,6 @@
 # Politomorphism — Computational Political Anthropology Framework
 
-A**Serban Gabriel Florin** | AI-I.Researcher  
+**Serban Gabriel Florin** | AI-I.Researcher  
 ORCID: [0009-0000-2266-3356](https://orcid.org/0009-0000-2266-3356) | SSRN: [ssrn.com/author=6192814](https://ssrn.com/author=6192814)  
 ResearchGate: [researchgate.net/profile/Serban-Gabriel-Florin](https://www.researchgate.net/profile/Serban-Gabriel-Florin) | Academia.edu: [independent.academia.edu/Gabrielserban43](https://independent.academia.edu/Gabrielserban43)  
 Substack: [profserban.substack.com](https://profserban.substack.com) | GitHub: [github.com/politomorphism](https://github.com/politomorphism)  
