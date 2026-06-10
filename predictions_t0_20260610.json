@@ -1,0 +1,63 @@
+{
+  "protocol_id": "politomorphism-predreg-v1.0",
+  "timestamp_utc": "2026-06-10T18:00:00Z",
+  "window_open": "2026-06-11T00:00:00Z",
+  "window_close": "2026-07-11T23:59:59Z",
+  "evaluation_deadline": "2026-07-25T23:59:59Z",
+  "formula": {
+    "primary": "P_i(t+30) = alpha*SRM_i(t) + beta*EEF(t) + gamma*P_i(t) + delta*C_i(t) + epsilon",
+    "srm_canonical": "SRM = V * A * exp(-lambda * D) * N",
+    "srm_optimized": "SRM_opt = V * A * exp(-lambda^0.20 * D^3.00) * N",
+    "d_decomposition": "D = 0.5*PE + 0.5*ICI",
+    "eef": "S(t) = -sum(p_i * log(p_i))"
+  },
+  "coefficients": {
+    "alpha": 0.42,
+    "beta": 0.18,
+    "gamma": 0.91,
+    "delta": -0.15,
+    "note": "Estimated via OLS on INSCOP series May2025-Apr2026, n=24 obs."
+  },
+  "eef_baseline": {
+    "romania": {
+      "S": 0.9308,
+      "S_max_pct": 84.7,
+      "status": "CRITICAL_ENTROPY_ZONE",
+      "dsdt": "positive"
+    }
+  },
+  "srm_values_t0": {
+    "RO_AUR":   {"V":0.75,"A":0.21,"D":0.652,"N":0.83,"lambda":38.20,"SRM":0.052,"SRM_opt":0.0518},
+    "RO_PSD":   {"V":0.52,"A":0.19,"D":0.617,"N":0.71,"lambda":6.57, "SRM":0.038,"SRM_opt":0.0395},
+    "RO_PNL":   {"V":0.58,"A":0.20,"D":0.629,"N":0.74,"lambda":7.01, "SRM":0.041,"SRM_opt":0.0422},
+    "RO_USR":   {"V":0.43,"A":0.17,"D":0.660,"N":0.62,"lambda":8.50, "SRM":0.028,"SRM_opt":0.0283},
+    "RO_UDMR":  {"V":0.22,"A":0.12,"D":0.597,"N":0.48,"lambda":2.31, "SRM":0.015,"SRM_opt":0.0152},
+    "RO_TOMAC": {"V":0.38,"A":0.25,"D":0.720,"N":0.58,"lambda":4.20, "SRM":0.008,"SRM_opt":0.0088}
+  },
+  "baseline_polling_t0": {
+    "RO_AUR":  38.2,
+    "RO_PSD":  17.5,
+    "RO_PNL":  20.3,
+    "RO_USR":  10.0,
+    "RO_UDMR":  5.0,
+    "source": "INSCOP Research Barometrul Informat.ro Ed.XI, 11-14 May 2026"
+  },
+  "predictions_delta_pp": {
+    "RO_AUR":   {"point":-1.5,"sigma":2.8,"ci95_lo":-7.1,"ci95_hi":4.1,"direction":"DOWN"},
+    "RO_PSD":   {"point": 1.8,"sigma":2.5,"ci95_lo":-3.2,"ci95_hi":6.8,"direction":"UP"},
+    "RO_PNL":   {"point":-1.2,"sigma":2.6,"ci95_lo":-6.4,"ci95_hi":4.0,"direction":"DOWN"},
+    "RO_USR":   {"point": 0.0,"sigma":2.3,"ci95_lo":-4.6,"ci95_hi":4.6,"direction":"FLAT"},
+    "RO_UDMR":  {"point": 0.3,"sigma":1.5,"ci95_lo":-2.7,"ci95_hi":3.3,"direction":"UP"},
+    "RO_TOMAC": {"note":"media visibility only","visibility_delta_gt":15,"sigma_gt":5}
+  },
+  "success_thresholds": {
+    "MAE_max_pp": 3.0,
+    "RMSE_max_pp": 4.0,
+    "pearson_r_min": 0.50,
+    "directional_accuracy_min_pct": 60,
+    "ci95_coverage_min_pct": 75
+  },
+  "immutability_declaration": "This file was generated and cryptographically hashed on 2026-06-10. No modification is permitted after SHA-256 computation.",
+  "generated_by": "Politomorphism Research Project | Serban Gabriel Florin | ORCID 0009-0000-2266-3356",
+  "sha256_self_hash": "c09ebc717322a6a819708702af213b2d6a65b7e5a869c53200043f648826858a"
+}
