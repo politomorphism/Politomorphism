@@ -1,0 +1,54 @@
+name: Politomorphism Pre-Registration Lock
+
+on:
+  push:
+    tags:
+      - 'v2026-07-preregistration'
+  workflow_dispatch:
+
+jobs:
+  lock-and-verify:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install numpy scipy
+
+      - name: Run predictions
+        run: python scripts/politomorphism_model.py predict
+
+      - name: Generate SRM CSV
+        run: python scripts/politomorphism_model.py csv
+
+      - name: Verify JSON hash integrity
+        run: python scripts/politomorphism_model.py verify predictions_t0_20260610.json
+
+      - name: Print immutability declaration
+        id: hash_step
+        run: |
+          HASH=$(python3 -c "import hashlib; print(hashlib.sha256(open('predictions_t0_20260610.json','rb').read()).hexdigest())")
+          echo "pre_registration_hash=$HASH" >> $GITHUB_OUTPUT
+          echo "======================================================"
+          echo "  POLITOMORPHISM PRE-REGISTRATION — LOCK CONFIRMED"
+          echo "======================================================"
+          echo "  Protocol date:   2026-06-10T18:00:00Z"
+          echo "  Window open:     2026-06-11T00:00:00Z"
+          echo "  Window close:    2026-07-11T23:59:59Z"
+          echo "  Evaluation by:   2026-07-25"
+          echo "  SHA-256 JSON:    $HASH"
+          echo "  Run timestamp:   $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          echo "  ORCID:           0009-0000-2266-3356"
+          echo "  OSF DOI:         10.17605/OSF.IO/HYDNZ"
+          echo "======================================================"
+          echo "  NO MODIFICATIONS PERMITTED AFTER THIS WORKFLOW RUN."
+          echo "======================================================"
