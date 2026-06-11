@@ -1,0 +1,2 @@
+alpha_A,alpha_B,gamma,rmse,pol_trend,pol_final,alpha_A_ci_lo,alpha_A_ci_hi,alpha_B_ci_lo,alpha_B_ci_hi,gamma_ci_lo,gamma_ci_hi,n_periods,bloc_A,bloc_B
+0.0546,0.0361,-0.4791,0.1192,-0.0208,0.0007,0.0201,0.0619,0.0115,0.0455,-0.5,-0.1142,12,"['AUR', 'Georgescu']","['PSD', 'PNL', 'USR']"
