@@ -97,9 +97,9 @@ S(t+1) = (1 - α) · S(t) + α · W · I(t) + β · SRM(t-1) + ε_MC(t)
 
 Georgescu α=0.874 — highest in dataset, consistent with flash-viral symbol profile and post-annulment symbolic exile dynamics (SSRN 6880661).
 
-![MC Comparative](outputs/MC_real_comparative.png)
+![MC Comparative](MC_real_comparative.png)
 
-![MC Trajectories](outputs/MC_real_trajectories.png)
+![MC Trajectories](MC_real_trajectories.png)
 
 ---
 
@@ -136,7 +136,7 @@ POL(t)   = ||C_A(t) − C_B(t)||₂
 
 **Key finding:** γ = −0.479 entirely negative. Post-electoral annulment (Romania, Dec 2024): Georgescu's resonance driven by juridical exclusion narratives → resonance-induced frame *freezing*, not amplification. Consistent with Symbolic Exile framework (SSRN 6880661).
 
-![CMG Results](outputs/CMG_real_results.png)
+![CMG Results](CMG_real_results.png)
 
 ---
 
