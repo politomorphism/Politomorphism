@@ -1,7 +1,7 @@
 # Politomorphism Engine
 ### Computational Political Anthropology Framework
 
-**Serban Gabriel Florin** | Independent Researcher | Hannover, Germany  
+**Serban Gabriel Florin** | I.Researcher | Hannover, Germany  
 ORCID: [0009-0000-2266-3356](https://orcid.org/0009-0000-2266-3356) | SSRN: https://papers.ssrn.com/sol3/cf_dev/AbsByAuth.cfm?per_id=10601216 
 OSF: [10.17605/OSF.IO/HYDNZ](https://doi.org/10.17605/OSF.IO/HYDNZ) | GitHub: [github.com/politomorphism](https://github.com/politomorphism)  
 Substack: [profserban.substack.com](https://profserban.substack.com) | License: CC BY 4.0
