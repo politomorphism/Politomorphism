@@ -138,6 +138,8 @@ POL(t)   = ||C_A(t) − C_B(t)||₂
 
 ![CMG Results](CMG_real_results.png)
 
+**Companion working paper:** *Operationalizing the Cognitive Maturation Gradient (CMG): A Transparent Measurement Framework, with Evidence from Romania (2005–2018)* documents a fully sourced, independently reproducible protocol (Eurostat tertiary-education series + WVS/EVS survey waves) for the national-level E(t)/T(t)/K(t)/C(t) trajectory — distinct from, and complementary to, the bloc-polarization application above. It fixes source selection, a mechanical shock-coding rule, theoretical-bound normalization, equal-weight defaults with a 3×3 sensitivity analysis, and introduces a formal **transition-zone rule** (|C(t) − τ| ≤ δ) for interpreting stage classifications near numeric thresholds, now part of CMG's general definition.
+
 ---
 
 ## Component 3 — SRM: Social Resonance Model
@@ -208,8 +210,23 @@ L(t+1) = L(t) + λ[α·P(t) + β·N(t) − γ·C(t)] − θ[L(t) − L*]
 | Greece | 0.624 | [0.416, 0.986] | ✅ Validated |
 | Serbia | 0.308 | [0.065, 0.933] | ✅ Validated |
 | Hungary | — | [−0.111, 0.967] | Inconclusive |
+| Slovakia | 0.003 | [0.018, 0.836] | ❌ Null result — referent-instability diagnosis (partisan re-alignment of trust, not continuous shock-recovery) |
 
-**LDE Roadmap:** 3.0 (memory + SRM feedback) → 3.1 (ISC integration) → 4.0 (institutional network) → 5.0 (state-space)
+**Confirmatory extension in progress:** the transition-versus-stability hypothesis motivated by the Hungary/Slovakia results has been converted into a pre-registered, falsifiable test — Bulgaria (high partisan turnover) vs. Portugal (low partisan turnover) — with country selection, crisis-coding rule, and decision thresholds locked *before* data extraction. OSF registration: [10.17605/OSF.IO/HYDNZ](https://doi.org/10.17605/OSF.IO/HYDNZ), registered 21 July 2026.
+
+---
+
+## SRM → EEF Coupling (in progress)
+
+First empirical test of the theorized inter-component coupling mechanism (symbolic divergence generating systemic entropy, Π(t) = π₀ + π₁·ICI_var(t) + ε(t)). Requires a same-country SRM series calibrated across multiple distinct years, matched against EEF's existing longitudinal panel — a data structure that did not previously exist for any single leader. Building it now for Viktor Orbán (Hungary), whose EEF longitudinal series already spans 2005–2024.
+
+| Year | λ | PE | ICI | D | A | N |
+|------|-----|-------|------------------------|-------|-------|-------|
+| 2010 | 2.14 | 0.468 | 0.710 [0.672, 0.745] | 0.589 | 0.278 | 0.208 |
+
+Method: Google Trends (Brent's method for λ), Media Cloud (US National + US State & Local + European collections), LDA topic modeling (K=10, PE), sentence-embedding bootstrap n=200 (ICI), VADER (A). D = 0.5·PE + 0.5·ICI, fixed to match the already-calibrated Orbán reference point.
+
+Remaining: 2014, 2018, and a recalculation of the existing single Orbán point on the same calendar-year window (2022) for full internal comparability before the coupling regression is estimated.
 
 ---
 
