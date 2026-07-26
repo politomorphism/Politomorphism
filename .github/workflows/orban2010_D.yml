@@ -1,0 +1,120 @@
+name: Orban 2010 — ICI Bootstrap (n=200)
+
+on:
+  workflow_dispatch:
+
+jobs:
+  orban2010_ici:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install sentence-transformers==2.7.0
+          pip install scikit-learn==1.4.2
+          pip install numpy==1.26.4
+          pip install pandas==2.2.2
+          pip install torch --index-url https://download.pytorch.org/whl/cpu
+
+      - name: Run ICI bootstrap pipeline
+        run: |
+          python3 << 'PYEOF'
+          import os, json, random, logging
+          from datetime import datetime
+          import numpy as np
+          import pandas as pd
+
+          logging.basicConfig(level=logging.INFO, format="%(asctime)s %(message)s")
+          log = logging.getLogger(__name__)
+          os.makedirs("results_orban2010", exist_ok=True)
+
+          from sentence_transformers import SentenceTransformer
+          from sklearn.metrics.pairwise import cosine_similarity
+
+          log.info("Loading titles from data/orban2010_content.csv")
+          df = pd.read_csv("data/orban2010_content.csv")
+          titles = [str(t).strip() for t in df['title'].tolist() if isinstance(t, str) and len(str(t).strip()) > 10]
+          n = len(titles)
+          log.info(f"Valid titles: {n}")
+
+          model = SentenceTransformer("paraphrase-multilingual-MiniLM-L12-v2")
+
+          BOOTSTRAP_N = 200
+          SEED = 42
+          random.seed(SEED); np.random.seed(SEED)
+
+          bootstrap_result = None
+          if n >= 10:
+              emb = model.encode(titles, show_progress_bar=True, batch_size=32)
+              log.info(f"Embeddings: {emb.shape}")
+              samples = []
+              sz = min(100, n)
+              for i in range(BOOTSTRAP_N):
+                  idx = np.random.choice(n, sz, replace=True)
+                  sm = cosine_similarity(emb[idx])
+                  k = len(sm)
+                  up = [sm[a][b] for a in range(k) for b in range(a+1, k)]
+                  if up:
+                      samples.append(1.0 - float(np.mean(up)))
+                  if (i + 1) % 50 == 0:
+                      log.info(f"  Bootstrap {i+1}/{BOOTSTRAP_N}")
+              arr = np.array(samples)
+              ici_mean = float(np.mean(arr))
+              ci_low = float(np.percentile(arr, 2.5))
+              ci_high = float(np.percentile(arr, 97.5))
+              log.info(f"ICI = {ici_mean:.4f}  CI = [{ci_low:.4f}, {ci_high:.4f}]  n_titles = {n}")
+              bootstrap_result = {
+                  "symbol": "Orban2010",
+                  "ici_mean": ici_mean,
+                  "ci_low_200": ci_low,
+                  "ci_high_200": ci_high,
+                  "ci_width_200": ci_high - ci_low,
+                  "n_bootstrap": BOOTSTRAP_N,
+                  "n_titles": n,
+                  "source_file": "data/orban2010_content.csv",
+              }
+              with open("results_orban2010/bootstrap_n200.json", "w") as f:
+                  json.dump(bootstrap_result, f, indent=2)
+          else:
+              log.warning(f"Insufficient titles: {n}")
+
+          summary = {
+              "run_timestamp": datetime.now().isoformat(),
+              "bootstrap_n200": bootstrap_result,
+              "n_titles_fetched": n,
+          }
+          with open("results_orban2010/summary_orban2010.json", "w", encoding="utf-8") as f:
+              json.dump(summary, f, ensure_ascii=False, indent=2)
+          log.info("DONE.")
+          PYEOF
+
+      - name: Upload results
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: orban2010-ici-results
+          path: results_orban2010/
+          retention-days: 90
+
+      - name: Commit results
+        if: success()
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          mkdir -p disinformation_paper/orban2010_data
+          cp results_orban2010/*.json disinformation_paper/orban2010_data/ || true
+          git add disinformation_paper/orban2010_data/ || true
+          git diff --staged --quiet || git commit -m "data: Orban 2010 ICI bootstrap n=200 $(date +'%Y-%m-%d')"
+          git push --rebase || true
