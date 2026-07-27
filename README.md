@@ -11,7 +11,7 @@ Substack: [profserban.substack.com](https://profserban.substack.com) | License: 
 
 ## What is the Politomorphism Engine?
 
-The Politomorphism Engine is a seven-component computational framework for analyzing political dynamics through symbolic resonance, cognitive frame evolution, institutional entropy, and legitimacy dynamics. It is the empirical core of **Politomorphism** — a paradigm in Computational Political Anthropology (CPA) developed as independent research (2024–2026).
+The Politomorphism Engine is a seven-component computational framework for analyzing political dynamics through symbolic resonance, cognitive frame evolution, institutional entropy, and legitimacy dynamics. It is the empirical core of **Politomorphism** — a paradigm in Computational Political Anthropology (CPA) developed by **Serban Gabriel Florin** as independent research (2024–2026).
 
 The Engine models a closed feedback cycle:
 
