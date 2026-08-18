@@ -63,18 +63,15 @@ Politomorphism/
 ---
 
 ## Component Status
-
 | # | Code | Name | Status | SSRN |
 |---|------|------|--------|------|
 | 1 | MC | Metapolitical Calibration | ✅ Implemented | This repo |
 | 2 | CMG | Cognitive Morphogenesis | ✅ Implemented | This repo |
-| 3 | SRM | Social Resonance Model | ✅ 25 symbols, R²=0.770 | [6348318](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6348318) |
-| 4 | EEF | Entropic Equilibrium Function | ✅ α=0.8116, 3 countries | [6677579](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6677579) |
-| 5 | PFM | Political Fragmentation Model | ✅ Published | [6729899](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6729899) |
-| 6 | ISC | Symbolic Coherence Index | ✅ Null result documented | [6826140](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6826140) |
-| 7 | LDE | Legitimacy Dynamics Engine | 🔄 Partial validation | [6850362](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6850362) |
-
----
+| 3 | SRM | Social Resonance Model | ✅ 25 symbols, R²=0.770 | 6348318 |
+| 4 | EEF | Entropic Equilibrium Function | ⚠️ Provisional — α=0.8116 validated on original 3 countries; 6-country extension (Estonia/Slovakia/Serbia) in progress, see [Data Integrity Note](docs/Data_Integrity_Note_NIT_Scale_Conversion.pdf) | 6677579 |
+| 5 | PFM | Political Fragmentation Model | ✅ Published | 6729899 |
+| 6 | ISC | Symbolic Coherence Index | ✅ Null result documented | 6826140 |
+| 7 | LDE | Legitimacy Dynamics Engine | 🔄 Partial validation | 6850362 |
 
 ## Component 1 — MC: Metapolitical Calibration
 
