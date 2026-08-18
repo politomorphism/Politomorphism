@@ -176,8 +176,26 @@ V(t)  = 0.0·p₀ + 0.5·p₁ + 1.0·p₂
 - V-Dem convergent validity: r = −0.980 (Hungary), r = −0.941 (Poland)
 - LOOCV accuracy = 1.000
 - Superior early warning vs. Freedom House for Romania 2024
+- 
+Data Integrity: Freedom House NIT Scale Conversion (2005–2024)
 
----
+Freedom House changed the coding convention of its Nations in Transit (NIT) 1–7 scale starting with the NIT 2020 edition (events of 2019), retroactively renumbering the historical series:
+
+Old convention (through NIT 2019): 1 = most democratic, 7 = most authoritarian
+New convention (NIT 2020 onward): 1 = most authoritarian, 7 = most democratic
+Conversion: score_new = 8 − score_old
+
+All indicator series in the EEF v4 panel are standardized to the new (7 = best) convention. This is a data-integrity correction, not a full numerical validation — see the note for the distinction between convention correction, coverage gaps, and fuzzy-transformation uncertainty still pending reconciliation.
+
+📄 Full write-up: Data Integrity Note (PDF) · OSF
+
+Series	Status
+Romania / Hungary / Poland — Judicial & Electoral	New convention; not yet line-by-line re-verified
+Poland — Judicial 2016–2024, Electoral 2015–2024	Missing (coverage gap)
+Estonia / Slovakia / Serbia — Judicial & Electoral	New convention; verified against official country reports
+BTI Political Participation (Estonia/Slovakia/Serbia)	Not yet extracted (0/30 cells)
+
+Author: Serban Gabriel Florin · ORCID: 0009-0000-2266-3356
 
 ## Component 5 — PFM: Political Fragmentation Model
 
