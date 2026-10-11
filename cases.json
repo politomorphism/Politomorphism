@@ -1,0 +1,42 @@
+{
+  "cases": [
+    {
+      "id": "RO-A",
+      "country": "Romania",
+      "project": "ro.wikipedia",
+      "act_date": "2024-12-06",
+      "act_description": "Anularea primului tur al alegerilor prezidentiale (CCR, Hotararea nr. 32/2024)",
+      "exposure_start": "2024-11-24",
+      "exposure_source": "Primul tur al alegerilor prezidentiale, 24 noiembrie 2024",
+      "prior_act_in_26w": false,
+      "platform_removal": null,
+      "de_status": "pending",
+      "source": "Politomorphism Working Paper, octombrie 2026 (nota privind Romania)",
+      "excluded": {"name": "Georgescu", "title": "Călin_Georgescu"},
+      "controls": [
+        {"name": "AUR", "title": "Alianța_pentru_Unirea_Românilor"},
+        {"name": "Simion", "title": "George_Simion"},
+        {"name": "Lasconi", "title": "Elena_Lasconi"}
+      ]
+    },
+    {
+      "id": "B-TEMPLATE",
+      "template": true,
+      "country": "",
+      "project": "xx.wikipedia",
+      "act_date": "YYYY-MM-DD",
+      "act_description": "",
+      "exposure_start": "YYYY-MM-DD",
+      "exposure_source": "fapt de calendar cu sursa, nu din forma seriei",
+      "prior_act_in_26w": false,
+      "platform_removal": null,
+      "de_status": "pending",
+      "source": "registrul/sursa numita INAINTE de cautare",
+      "excluded": {"name": "", "title": ""},
+      "controls": [
+        {"name": "", "title": ""},
+        {"name": "", "title": ""}
+      ]
+    }
+  ]
+}
