@@ -1,0 +1,33 @@
+name: Audit fezabilitate v2
+
+on:
+  workflow_dispatch:
+    inputs:
+      nsim:
+        description: "Numar simulari per celula"
+        default: "500"
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Instaleaza dependente
+        run: pip install numpy pandas requests
+
+      - name: Ruleaza auditul (date reale Wikimedia)
+        shell: bash
+        run: python audit_fezabilitate_v2.py --nsim ${{ github.event.inputs.nsim }} 2>&1 | tee audit_output.txt
+
+      - name: Salveaza rezultatele
+        uses: actions/upload-artifact@v4
+        with:
+          name: audit_v2
+          path: |
+            audit_output.txt
+            results/
