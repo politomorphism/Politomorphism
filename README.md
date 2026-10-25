@@ -260,48 +260,6 @@ Remaining: 2014, 2018, and a recalculation of the existing single Orbán point o
 ---
 
 ## Citation
-Computational Political Anthropology: Defining a New Field and Its Core Engine
-
-The Politomorphism Framework
-
-Șerban Gabriel Florin
-Independent Researcher, Hannover, Germany
-ORCID 0009-0000-2266-3356 · OSF DOI 10.17605/OSF.IO/HYDNZ · github.com/politomorphism
-
-Abstract
-
-Political anthropology has long studied symbols, cognition, institutions and legitimacy, and computational social science now measures each of them at scale, but the two traditions treat these domains as separate objects. 
-
-No formal framework models them as one coupled system. This paper proposes Computational Political Anthropology (CPA) as an emergent discipline whose task is to represent the symbolic, cognitive, institutional and legitimational layers of political life within a single set of equations that can be estimated from data and refuted by it. 
-
-We present the Politomorphism Engine, a seven-component formalization (MC, CMG, SRM, EEF, PFM, ISC, LDE), and state it as a coupled discrete-time dynamical system. 
-
-The most developed component, the Social Resonance Model, rests on a corpus of 22 symbol-periods in the primary PE/ICI dataset, extended to 24–25 with later case studies, spanning 14 countries and 2013–2024; we report what this corpus supports, including a strong within-sample association between decay rate and resonance and a Cross-Cultural Frame Incompatibility effect, and what it does not, including a negative out-of-sample result for persistence forecasting and several documented null and falsified results in other components. 
-
-We then derive three falsifiable system-level predictions from the coupling structure, set out a three-to-five-year research agenda, and invite replication: all code, data and pipelines are open.
-
-Keywords: computational political anthropology; politomorphism; symbolic resonance; dynamical systems; falsifiability; open science
-
-1. The Problem
-Classical political anthropology made its name by showing that power is exercised through meaning. 
-Rituals, emblems, kinship idioms and founding narratives are not decoration laid over institutions; they are part of how authority is produced, contested and withdrawn.
-
-The tradition from Turner and Geertz to Kapferer and Scott is rich in description and thin in formalization. 
-Its claims about how a symbol gains or loses the capacity to coordinate a population are typically argued through cases, and the cases are rarely comparable with one another.
-
-Contemporary computational social science has the opposite profile. It measures sentiment, framing, topic structure, network diffusion, institutional quality and public trust with considerable precision, and it does so on corpora that no field researcher could assemble. 
-But it measures these things in separate literatures with separate vocabularies. 
-Framing research does not speak to democratic-backsliding indices, and legitimacy surveys do not speak to the attention dynamics of individual symbols. 
-
-Each community has good instruments for one layer, and no account of how the layers feed one another.
-The missing object is a couple model. If a politically potent symbol fractures into incompatible readings across media, does that fracture raise the rate at which institutional disorder is produced? 
-
-If legitimacy collapses, do actors recalibrate their symbolic strategy, and at what speed? If the population's cognitive frames diverge, does that amplify symbolic polarization in turn? 
-
-These are questions about interaction between layers, and they cannot be answered by any single-layer model, however well validated. 
-They require a framework in which the layers are written down in a common formal language, with explicit transmission mechanisms between them, so that the interactions become estimable and, above all, refutable.
-
-References
 Archer, M. S. (1995). Realist Social Theory: The Morphogenetic Approach. Cambridge University Press.
 Blei, D. M., Ng, A. Y., & Jordan, M. I. (2003). Latent Dirichlet allocation. Journal of Machine Learning Research, 3, 993–1022.
 Hutto, C. J., & Gilbert, E. (2014). VADER: A parsimonious rule-based model for sentiment analysis of social media text. Proceedings of ICWSM-14.
@@ -323,14 +281,3 @@ Florin, Ș. G. (2026). The Legitimacy Dynamics Engine: Preliminary calibration o
 Florin, Ș. G. (2026). Cross-cultural frame incompatibility: Modi 2014, 2019 and 2024; Imran Khan 2018; Milei 2023; Meloni 2021–2024; Harris 2024 and the VP baseline effect. SSRN working papers.
 
 
-```
-Serban, G.F. (2026). Politomorphism Engine: Computational Political Anthropology Framework.
-GitHub: https://github.com/politomorphism/Politomorphism
-ORCID: 0009-0000-2266-3356
-SSRN: https://ssrn.com/author=6192814
-OSF: https://doi.org/10.17605/OSF.IO/HYDNZ
-```
-
----
-
-License: CC BY 4.0 — All code and data open source.
