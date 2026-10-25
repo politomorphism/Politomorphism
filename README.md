@@ -261,23 +261,42 @@ Remaining: 2014, 2018, and a recalculation of the existing single Orbán point o
 
 ## Citation
 Archer, M. S. (1995). Realist Social Theory: The Morphogenetic Approach. Cambridge University Press.
+
 Blei, D. M., Ng, A. Y., & Jordan, M. I. (2003). Latent Dirichlet allocation. Journal of Machine Learning Research, 3, 993–1022.
+
 Hutto, C. J., & Gilbert, E. (2014). VADER: A parsimonious rule-based model for sentiment analysis of social media text. Proceedings of ICWSM-14.
+
 Reimers, N., & Gurevych, I. (2019). Sentence-BERT: Sentence embeddings using Siamese BERT-networks. Proceedings of EMNLP-IJCNLP 2019.
+
 Shannon, C. E. (1948). A mathematical theory of communication. Bell System Technical Journal, 27(3), 379–423.
+
 Florin, Ș. G. (2026). Politomorphism and the Social Resonance Model: Quantifying political symbolic fragmentation across 22 symbol-periods. SSRN working paper; OSF DOI 10.17605/OSF.IO/HYDNZ.
+
 Florin, Ș. G. (2026). Operationalizing semantic drift (D) in the Social Resonance Model. SSRN 6583879.
+
 Florin, Ș. G. (2026). The Politomorphism Engine: Full empirical validation (bootstrap ICI, parametric optimization, Prophet forecasting). SSRN working paper.
+
 Florin, Ș. G. (2026). Politomorphism: Clarifying intentional and emergent processes (Module 3.1). SSRN preprint.
+
 Florin, Ș. G. (2026). The Politomorphism Engine: A five-component framework for computational political analysis. SSRN working paper.
+
 Florin, Ș. G. (2026). Coupling SRM, EEF, and ISC: The adaptive layer of the Politomorphism Engine. OSF DOI 10.17605/OSF.IO/HYDNZ.
+
 Florin, Ș. G. (2026). Measuring political systemic instability: The Entropic Equilibrium Function (EEF). SSRN working paper.
+
 Florin, Ș. G. (2026). The Political Fragmentation Model (PFM): A formal theory of fragmentation propagation in political systems. SSRN working paper.
+
 Florin, Ș. G. (2026). PFM-Survival: Pre-registered random survival forest prediction of political symbol attention decay. SSRN working paper.
+
 Florin, Ș. G. (2026). Cognitive Morphogenesis (CMG): Modeling collective frame polarization. SSRN working paper.
+
 Florin, Ș. G. (2026). Metapolitical Calibration (MC): Formalizing strategic adaptation. SSRN 6918918.
+
 Florin, Ș. G. (2026). The Symbolic Coherence Index does not predict electoral support in Romania 2019–2024; Parliamentary speech coherence does not predict electoral support. Null-result working papers.
+
 Florin, Ș. G. (2026). The Legitimacy Dynamics Engine: Preliminary calibration on Romania, Hungary and Poland; Cross-national calibration on Standard Eurobarometer data (2014–2025). Working papers.
+
 Florin, Ș. G. (2026). Cross-cultural frame incompatibility: Modi 2014, 2019 and 2024; Imran Khan 2018; Milei 2023; Meloni 2021–2024; Harris 2024 and the VP baseline effect. SSRN working papers.
+
 
 
