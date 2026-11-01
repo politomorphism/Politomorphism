@@ -258,6 +258,26 @@ Remaining: 2014, 2018, and a recalculation of the existing single Orbán point o
 - OSF pre-registration for prospective predictions
 
 ---
+## Latest addition — Defensive Audit Layer (propaganda-technique detection)
+
+**Status: 🔬 Early-stage / exploratory (2026). Two working papers, both corrected to v2 after independent reproduction audits.**
+
+A detector that flags propagandistic vs. non-propagandistic news paragraphs, proposed as a *defensive* audit layer for the Engine — detection and measurement, never generation. Built on the English **PropXplain** corpus (QCRI). An article-level leakage problem in the corpus's official split (paragraphs from the same ~250 articles scattered across train/validation/test) was found and corrected by re-splitting so that no article spans two sets.
+
+### Results — article-disjoint test set (n = 862; propagandistic class)
+
+| Model | Precision | Recall | F1 | AP |
+|-------|-----------|--------|----|----|
+| TF-IDF + LR (baseline) | 0.464 | 0.606 | 0.525 [.47–.58] | 0.527 |
+| DistilBERT (transformer) | 0.578 | 0.545 | 0.561 [.48–.63] | 0.606 |
+
+At the models' default thresholds the F1 difference is **not** statistically distinguishable from zero (ΔF1 +0.033, 95% article-clustered bootstrap CI [−0.03, +0.09]). On threshold-independent / equal-cost comparisons the transformer is the better detector: average precision higher (ΔAP +0.074 [+0.00, +0.14]); recall at **matched review budget** higher (0.670 vs 0.606, Δ +0.068 [+0.01, +0.12]); and significantly more correct classifications (McNemar 148 vs 84, p < 0.001). Paired transitions show the two models miss *different* cases, not the same ones.
+
+### Honest scope
+
+A classification score is **not** a validated measure of "manipulation density," and the detector must not be used to arbitrate which political positions are legitimate — it flags verifiable discursive features at most. All results are single fixed-seed runs; construct validity, multi-seed training, and a purpose-built contrastive-pairs benchmark are future work. This layer does **not** validate the broader framework.
+
+**Code & papers:** [github.com/politomorphism/politomorphism-defense](https://github.com/politomorphism/politomorphism-defense) — Working Paper I (transparent baseline) and Working Paper II (leakage-corrected transformer comparison), both v2 (corrected).
 
 ## Citation
 Archer, M. S. (1995). Realist Social Theory: The Morphogenetic Approach. Cambridge University Press.
