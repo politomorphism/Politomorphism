@@ -1,0 +1,42 @@
+name: Orban 2010 — ICI variants and D table
+
+on:
+  workflow_dispatch:
+
+jobs:
+  orban2010_ici_variants:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install sentence-transformers==2.7.0
+          pip install scikit-learn==1.4.2
+          pip install numpy==1.26.4
+          pip install pandas==2.2.2
+          pip install torch --index-url https://download.pytorch.org/whl/cpu
+
+      - name: Run ICI variants and D table
+        run: python scripts/compute_ICI_variants_orban2010.py
+
+      - name: Commit results
+        if: success()
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add disinformation_paper/orban2010_data/ici_variants_and_D_table.json
+          git diff --staged --quiet || git commit -m "data: Orban 2010 ICI variants and labelled D table"
+          git pull --rebase origin main
+          git push origin main
