@@ -1,0 +1,75 @@
+{
+  "generated_utc": "2026-11-10T21:49:07.191954+00:00",
+  "script": "scripts/compute_PE_orban2010.py",
+  "script_sha256": "4223a664a84d48838d468cc5127f50a463fd380011f5ccf09bf7f4f4bd653348",
+  "code_commit": "68e3abc03eeb1a731deeab296f27a6dfe737a68e",
+  "working_tree_clean": true,
+  "command": "python scripts/compute_PE_orban2010.py",
+  "input_file": "data/orban2010_content.csv",
+  "input_file_sha256": "fe51747d80943b927995931a4b577d9d42432f84a6edfcfa5cb2d519527bb93d",
+  "effective_corpus": {
+    "n_titles": 270,
+    "sha256_of_titles_joined_by_newline": "d296a6e97a8701afbc8aa34d35574fb742270dc8e435568192cfede9972c1bd5",
+    "empty_after_preprocessing": 2
+  },
+  "language_detection": {
+    "expected": "en",
+    "counts": {
+      "en": 229,
+      "fr": 14,
+      "de": 8,
+      "ro": 4,
+      "es": 3,
+      "ru": 2,
+      "sv": 2,
+      "it": 2,
+      "et": 1,
+      "da": 1,
+      "tl": 1,
+      "pl": 1,
+      "no": 1,
+      "af": 1
+    },
+    "flagged_not_removed": 41,
+    "langdetect_seed": 42
+  },
+  "parameters": {
+    "seed": 42,
+    "n_topics": 10,
+    "max_iter": 20,
+    "tfidf": {
+      "max_features": 5000,
+      "min_df": 2,
+      "max_df": 0.95
+    },
+    "lda_input": "TF-IDF matrix (as published)",
+    "jensenshannon_base": 2,
+    "tfidf_vocabulary_size": 217
+  },
+  "versions": {
+    "python": "3.13.18",
+    "numpy": "2.5.3",
+    "scipy": "1.18.1",
+    "scikit-learn": "1.9.1",
+    "pandas": "3.0.5",
+    "spacy": "3.8.18",
+    "spacy_model": "core_web_sm 3.8.0",
+    "langdetect": "see pip freeze",
+    "platform": "Linux-6.18.44-fc-v338-x86_64-with-glibc2.39"
+  },
+  "result": {
+    "PE_js_distance_published_code": 0.5120931796684989,
+    "PE_js_divergence_text_definition": 0.2700442671817286
+  },
+  "determinism_check_same_process": {
+    "PE_js_distance_second_fit": 0.5120931796684989,
+    "identical": true
+  },
+  "deviations_from_paper": [
+    "titles only (paper: title + first paragraph)",
+    "spaCy token filter (alpha, non-stop, non-space; lemma lowercased) is not specified in the paper",
+    "language flagged, not removed (paper: flag)",
+    "PE reported both as JS distance (published code) and JS divergence (published text)"
+  ],
+  "not_computed": "ICI and D (need sentence embeddings, unavailable in this environment)"
+}
