@@ -1,0 +1,10 @@
+{
+  "symbol": "Orban2010",
+  "ici_mean": 0.7102062233537435,
+  "ci_low_200": 0.6723401226103306,
+  "ci_high_200": 0.7452143080532551,
+  "ci_width_200": 0.07287418544292446,
+  "n_bootstrap": 200,
+  "n_titles": 270,
+  "source_file": "data/orban2010_content.csv"
+}
