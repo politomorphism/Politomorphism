@@ -7,7 +7,7 @@
   "method": "200 bootstrap subsamples of size 100 drawn with replacement; ICI = 1 - mean pairwise cosine similarity (upper triangle); seed 42; 2.5/97.5 percentiles",
   "runs": [
     {"run_id": 42906030733, "started_utc": "2026-11-10T21:32:28Z", "ici_mean": 0.7102, "ci_low": 0.6723, "ci_high": 0.7452, "n_titles": 270},
-    {"run_id": 42906525827, "started_utc": "2026-11-10T21:35:00Z", "ici_mean": 0.7102, "ci_low": 0.6723, "ci_high": 0.7452, "n_titles": 270}
+    {"run_id": 42906525827, "started_utc": "2026-11-10T21:35:28Z", "ici_mean": 0.7102, "ci_low": 0.6723, "ci_high": 0.7452, "n_titles": 270}
   ],
   "run_to_run": "identical to the 4 reported decimals in two runs",
   "earlier_run_not_recoverable": {"run_id": 30219793743, "date": "2026-07-26", "reason": "logs and artifact expired (90-day retention)"},
