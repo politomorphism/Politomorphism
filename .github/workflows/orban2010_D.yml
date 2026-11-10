@@ -117,4 +117,5 @@ jobs:
           cp results_orban2010/*.json disinformation_paper/orban2010_data/ || true
           git add disinformation_paper/orban2010_data/ || true
           git diff --staged --quiet || git commit -m "data: Orban 2010 ICI bootstrap n=200 $(date +'%Y-%m-%d')"
-          git push --rebase || true
+          git pull --rebase origin main
+          git push origin main

@@ -1,0 +1,23 @@
+{
+  "what": "Reproduction record for the Orban 2010 ICI bootstrap workflow (orban2010_D.yml)",
+  "note": "Transcribed from the GitHub Actions run logs by hand; this is NOT the workflow's own JSON output. The workflow's commit step failed in every run because of an invalid 'git push --rebase' (fixed in the same commit). The artifact from each run could not be fetched.",
+  "repository_commit_at_run": "726c983e1f64945752dfabe389f22477a50a6498",
+  "input": {"file": "data/orban2010_content.csv", "valid_titles": 270},
+  "model": "paraphrase-multilingual-MiniLM-L12-v2 (sentence-transformers 2.7.0), embeddings shape (270, 384)",
+  "method": "200 bootstrap subsamples of size 100 drawn with replacement; ICI = 1 - mean pairwise cosine similarity (upper triangle); seed 42; 2.5/97.5 percentiles",
+  "runs": [
+    {"run_id": 42906030733, "started_utc": "2026-11-10T21:32:28Z", "ici_mean": 0.7102, "ci_low": 0.6723, "ci_high": 0.7452, "n_titles": 270},
+    {"run_id": 42906525827, "started_utc": "2026-11-10T21:35:00Z", "ici_mean": 0.7102, "ci_low": 0.6723, "ci_high": 0.7452, "n_titles": 270}
+  ],
+  "run_to_run": "identical to the 4 reported decimals in two runs",
+  "earlier_run_not_recoverable": {"run_id": 30219793743, "date": "2026-07-26", "reason": "logs and artifact expired (90-day retention)"},
+  "published_values_for_comparison": {
+    "source": "Politomorphism Engine - Full Empirical Validation (SSRN/OSF, May 2026), bootstrap table",
+    "original_ici": 0.592,
+    "bootstrap_ici": 0.700,
+    "bootstrap_ci": [0.683, 0.715],
+    "approx_original_corpus_n": 300
+  },
+  "reading": "The re-run value 0.710 is 0.010 above the published bootstrap value 0.700 on a 270-title corpus; the published 'original' value 0.592 is not reproduced. The CI widths differ (0.073 vs 0.032) and the published CI procedure is not described, so they are not directly comparable.",
+  "recorded_utc": "2026-11-10"
+}
