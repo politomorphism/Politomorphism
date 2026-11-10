@@ -1,0 +1,90 @@
+{
+  "generated_utc": "2026-11-10T22:06:54.997570+00:00",
+  "script": "scripts/compute_ICI_variants_orban2010.py",
+  "script_sha256": "7c4786c92d4eeba0e0ed51e901d79cee351b8548d732ca5e9659af1c60ca2971",
+  "code_commit": "3530b3a1d38348da43f2f9cfc03697576e83309a",
+  "input_file_sha256": "fe51747d80943b927995931a4b577d9d42432f84a6edfcfa5cb2d519527bb93d",
+  "corpus_sha256": "d296a6e97a8701afbc8aa34d35574fb742270dc8e435568192cfede9972c1bd5",
+  "n_titles": 270,
+  "embedding_model": "paraphrase-multilingual-MiniLM-L12-v2",
+  "bootstrap": {
+    "n": 200,
+    "sample_size": 100,
+    "replace": true,
+    "seed": 42,
+    "rng": "np.random.RandomState"
+  },
+  "versions": {
+    "python": "3.11.18",
+    "numpy": "1.26.4",
+    "sklearn": "1.4.2",
+    "sentence_transformers": "2.7.0",
+    "torch": "2.15.0+cu132",
+    "platform": "Linux-7.0.0-1017-azure-x86_64-with-glibc2.39"
+  },
+  "ICI": {
+    "upper_no_diag": 0.71486696600914,
+    "full_with_diag": 0.7122192978858948,
+    "bootstrap": {
+      "mean": 0.7102062375098467,
+      "ci_low": 0.6723401516675949,
+      "ci_high": 0.7452143080532551
+    }
+  },
+  "D_table_alpha_0.5": [
+    {
+      "PE_variant": "PE_js_distance (published code)",
+      "PE": 0.5120931796684989,
+      "ICI_variant": "ICI_upper_no_diag (repo code)",
+      "ICI": 0.71486696600914,
+      "alpha": 0.5,
+      "D": 0.6134800728388194
+    },
+    {
+      "PE_variant": "PE_js_distance (published code)",
+      "PE": 0.5120931796684989,
+      "ICI_variant": "ICI_full_with_diag (paper text)",
+      "ICI": 0.7122192978858948,
+      "alpha": 0.5,
+      "D": 0.6121562387771968
+    },
+    {
+      "PE_variant": "PE_js_distance (published code)",
+      "PE": 0.5120931796684989,
+      "ICI_variant": "ICI_bootstrap_mean (workflow estimator)",
+      "ICI": 0.7102062375098467,
+      "alpha": 0.5,
+      "D": 0.6111497085891728
+    },
+    {
+      "PE_variant": "PE_js_divergence (paper text)",
+      "PE": 0.2700442671817286,
+      "ICI_variant": "ICI_upper_no_diag (repo code)",
+      "ICI": 0.71486696600914,
+      "alpha": 0.5,
+      "D": 0.4924556165954343
+    },
+    {
+      "PE_variant": "PE_js_divergence (paper text)",
+      "PE": 0.2700442671817286,
+      "ICI_variant": "ICI_full_with_diag (paper text)",
+      "ICI": 0.7122192978858948,
+      "alpha": 0.5,
+      "D": 0.4911317825338117
+    },
+    {
+      "PE_variant": "PE_js_divergence (paper text)",
+      "PE": 0.2700442671817286,
+      "ICI_variant": "ICI_bootstrap_mean (workflow estimator)",
+      "ICI": 0.7102062375098467,
+      "alpha": 0.5,
+      "D": 0.49012525234578763
+    }
+  ],
+  "notes": [
+    "titles only (paper: title + first paragraph)",
+    "bootstrap uses a local RandomState, so it is NOT bit-identical to the earlier 0.7102 run (global np.random state); compare as estimator, not as replication",
+    "alpha=0.351/0.649 not computed: no source identified",
+    "no SRM: lambda, V, A, N lack verifiable provenance"
+  ]
+}
