@@ -76,7 +76,8 @@ out = {"generated_utc": datetime.now(timezone.utc).isoformat(),
        "ICI": {"upper_no_diag": ici_upper, "full_with_diag": ici_full, "bootstrap": ici_boot},
        "D_table_alpha_0.5": table,
        "notes": ["titles only (paper: title + first paragraph)",
-                 "bootstrap uses a local RandomState, so it is NOT bit-identical to the earlier 0.7102 run (global np.random state); compare as estimator, not as replication",
+                 "bootstrap uses a local np.random.RandomState(42); it reproduces the earlier workflow result (ICI 0.7102, CI [0.6723, 0.7452]) at the reported 4-decimal precision",
+                 "designation made by the author on 2026-11-10 AFTER all variants were computed: principal = PE_js_divergence (paper text) + ICI_full_with_diag (paper text); the other variants are implementation-reproduction or separate-estimator results",
                  "alpha=0.351/0.649 not computed: no source identified",
                  "no SRM: lambda, V, A, N lack verifiable provenance"]}
 os.makedirs(os.path.dirname(OUT), exist_ok=True)
