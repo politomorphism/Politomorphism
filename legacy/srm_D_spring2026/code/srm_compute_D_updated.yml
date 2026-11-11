@@ -1,0 +1,225 @@
+name: SRM — Compute D (PE + ICI)
+
+on:
+  workflow_dispatch:
+    inputs:
+      symbol:
+        description: 'Symbol name (e.g. Trump, Ciolacu)'
+        required: true
+        default: 'Trump'
+      csv_path:
+        description: 'Path to Media Cloud CSV (relative to repo root) — lăsat gol = fetch automat'
+        required: false
+        default: ''
+      mediacloud_query:
+        description: 'Query Media Cloud (ex: "Ciolacu") — folosit doar dacă csv_path e gol'
+        required: false
+        default: ''
+      mediacloud_start:
+        description: 'Data start fetch (YYYY-MM-DD)'
+        required: false
+        default: '2024-01-01'
+      mediacloud_end:
+        description: 'Data end fetch (YYYY-MM-DD)'
+        required: false
+        default: '2024-12-31'
+      V:
+        description: 'Viral Velocity (lăsat gol = calculat automat din lambda)'
+        required: false
+        default: ''
+      A:
+        description: 'Affective Weight (lăsat gol = calculat automat din VADER)'
+        required: false
+        default: ''
+      N:
+        description: 'Network Coverage (lăsat gol = calculat automat din CSV)'
+        required: false
+        default: ''
+      lam:
+        description: 'Lambda (default=7)'
+        required: false
+        default: '7.0'
+      alpha:
+        description: 'PE weight alpha (default=0.5)'
+        required: false
+        default: '0.5'
+      bootstrap:
+        description: 'Bootstrap samples (200 for publication, 20 for speed)'
+        required: false
+        default: '200'
+      event_window_days:
+        description: 'Natural event window for N (0 = use full period). Flash Viral=14, Electoral=180, Wartime=180'
+        required: false
+        default: '0'
+
+jobs:
+  compute-D:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Cache pip dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-compute-D-${{ hashFiles('**/requirements_D.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-compute-D-
+
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install scikit-learn scipy numpy sentence-transformers mediacloud vaderSentiment
+
+      - name: Fetch data from Media Cloud
+        if: ${{ github.event.inputs.csv_path == '' }}
+        env:
+          MEDIACLOUD_API_KEY: ${{ secrets.MEDIACLOUD_API_KEY }}
+        run: |
+          python - <<'EOF'
+          import mediacloud.api, csv, os, sys, time
+          from datetime import date
+
+          query      = "${{ github.event.inputs.mediacloud_query }}" or "${{ github.event.inputs.symbol }}"
+          start_date = date.fromisoformat("${{ github.event.inputs.mediacloud_start }}")
+          end_date   = date.fromisoformat("${{ github.event.inputs.mediacloud_end }}")
+          out_csv    = "${{ github.event.inputs.symbol }}-DATA.csv"
+
+          mc = mediacloud.api.SearchApi(os.environ["MEDIACLOUD_API_KEY"])
+
+          stories, token, retries = [], None, 0
+          while True:
+              try:
+                  page, token = mc.story_list(query, start_date=start_date, end_date=end_date,
+                                              pagination_token=token, page_size=1000)
+                  stories.extend(page)
+                  print(f"  fetched {len(stories)} stories so far...", flush=True)
+                  retries = 0
+                  time.sleep(1)
+                  if not token:
+                      break
+              except Exception as e:
+                  retries += 1
+                  print(f"  Eroare pagina (retry {retries}/3): {e}", flush=True)
+                  if retries >= 3:
+                      print(f"  Oprire dupa 3 retry-uri. Salvez {len(stories)} articole.", flush=True)
+                      break
+                  time.sleep(5)
+
+          if not stories:
+              print("EROARE: niciun articol gasit.", file=sys.stderr)
+              sys.exit(1)
+
+          with open(out_csv, "w", newline="", encoding="utf-8") as f:
+              writer = csv.DictWriter(f, fieldnames=["publish_date","title","url","media_name"])
+              writer.writeheader()
+              for s in stories:
+                  writer.writerow({
+                      "publish_date": s.get("publish_date",""),
+                      "title":        s.get("title",""),
+                      "url":          s.get("url",""),
+                      "media_name":   s.get("media_name",""),
+                  })
+
+          print(f"Salvat {len(stories)} articole in {out_csv}")
+          EOF
+
+      - name: Resolve csv_path
+        id: resolve_csv
+        run: |
+          if [ -n "${{ github.event.inputs.csv_path }}" ]; then
+            echo "csv=${{ github.event.inputs.csv_path }}" >> $GITHUB_OUTPUT
+          else
+            echo "csv=${{ github.event.inputs.symbol }}-DATA.csv" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Run compute_D.py
+        run: |
+          ARGS="--csv ${{ steps.resolve_csv.outputs.csv }} \
+                --symbol ${{ github.event.inputs.symbol }} \
+                --alpha ${{ github.event.inputs.alpha }} \
+                --bootstrap ${{ github.event.inputs.bootstrap }} \
+                --lam ${{ github.event.inputs.lam }} \
+                --out D_result_${{ github.event.inputs.symbol }}.json"
+
+          if [ -n "${{ github.event.inputs.V }}" ]; then ARGS="$ARGS --V ${{ github.event.inputs.V }}"; fi
+          if [ -n "${{ github.event.inputs.A }}" ]; then ARGS="$ARGS --A ${{ github.event.inputs.A }}"; fi
+          if [ -n "${{ github.event.inputs.N }}" ]; then ARGS="$ARGS --N ${{ github.event.inputs.N }}"; fi
+          if [ "${{ github.event.inputs.event_window_days }}" != "0" ]; then
+            ARGS="$ARGS --event_window_days ${{ github.event.inputs.event_window_days }}"
+          fi
+
+          python scripts/compute_D.py $ARGS
+
+      - name: Compute V, A, N automatically
+        run: |
+          D_VALUE=$(python3 -c "
+          import json
+          with open('D_result_${{ github.event.inputs.symbol }}.json') as f:
+              d = json.load(f)
+          print(d['D_result']['D'])
+          ")
+
+          python scripts/compute_V_A_N.py \
+            --csv ${{ steps.resolve_csv.outputs.csv }} \
+            --symbol ${{ github.event.inputs.symbol }} \
+            --lam ${{ github.event.inputs.lam }} \
+            --start ${{ github.event.inputs.mediacloud_start }} \
+            --end ${{ github.event.inputs.mediacloud_end }} \
+            --D $D_VALUE \
+            --out V_A_N_${{ github.event.inputs.symbol }}.json
+
+      - name: Run calibrate_alpha.py
+        run: python scripts/calibrate_alpha.py
+        continue-on-error: true
+
+      - name: Run test_hypotheses.py
+        run: python scripts/test_hypotheses.py
+        continue-on-error: true
+
+      - name: Display results
+        run: |
+          echo "=== D Result ==="
+          cat D_result_${{ github.event.inputs.symbol }}.json || echo "not found"
+          echo "=== V, A, N Result ==="
+          cat V_A_N_${{ github.event.inputs.symbol }}.json || echo "not found"
+          echo "=== Alpha Calibration ==="
+          cat alpha_calibration_results.json || echo "not found"
+
+      - name: Upload results as artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: D-computation-${{ github.event.inputs.symbol }}-${{ github.run_number }}
+          path: |
+            D_result_${{ github.event.inputs.symbol }}.json
+            V_A_N_${{ github.event.inputs.symbol }}.json
+            alpha_calibration_results.json
+            hypothesis_test_results.json
+            ${{ github.event.inputs.symbol }}-DATA.csv
+          retention-days: 90
+
+      - name: Commit results to repository
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git pull --rebase origin main
+
+          git add "D_result_${{ github.event.inputs.symbol }}.json" || true
+          git add "V_A_N_${{ github.event.inputs.symbol }}.json" || true
+          git add alpha_calibration_results.json || true
+          git add hypothesis_test_results.json || true
+          git add "${{ github.event.inputs.symbol }}-DATA.csv" || true
+
+          git diff --staged --quiet || \
+            git commit -m "SRM D+VAN: ${{ github.event.inputs.symbol }} — bootstrap=${{ github.event.inputs.bootstrap }}, alpha=${{ github.event.inputs.alpha }}"
+
+          git push

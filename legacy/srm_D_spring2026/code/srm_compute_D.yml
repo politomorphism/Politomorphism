@@ -1,0 +1,125 @@
+name: SRM — Compute D (PE + ICI)
+
+on:
+  workflow_dispatch:
+    inputs:
+      symbol:
+        description: 'Symbol name (e.g. Trump, Ciolacu)'
+        required: true
+        default: 'Trump'
+      csv_path:
+        description: 'Path to Media Cloud CSV (relative to repo root)'
+        required: true
+        default: 'TRUMP+DATA.csv'
+      V:
+        description: 'Viral Velocity'
+        required: false
+        default: ''
+      A:
+        description: 'Affective Weight'
+        required: false
+        default: ''
+      N:
+        description: 'Network Coverage'
+        required: false
+        default: ''
+      lam:
+        description: 'Lambda (default=7)'
+        required: false
+        default: '7.0'
+      alpha:
+        description: 'PE weight alpha (default=0.5)'
+        required: false
+        default: '0.5'
+      bootstrap:
+        description: 'Bootstrap samples (default=200 for CI speed)'
+        required: false
+        default: '200'
+
+jobs:
+  compute-D:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Cache pip dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-compute-D-${{ hashFiles('**/requirements_D.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-compute-D-
+
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install scikit-learn scipy numpy sentence-transformers
+
+      - name: Run compute_D.py
+        run: |
+          ARGS="--csv ${{ github.event.inputs.csv_path }} \
+                --symbol \"${{ github.event.inputs.symbol }}\" \
+                --alpha ${{ github.event.inputs.alpha }} \
+                --bootstrap ${{ github.event.inputs.bootstrap }} \
+                --lam ${{ github.event.inputs.lam }} \
+                --out D_result_${{ github.event.inputs.symbol }}.json"
+
+          if [ -n "${{ github.event.inputs.V }}" ]; then
+            ARGS="$ARGS --V ${{ github.event.inputs.V }}"
+          fi
+          if [ -n "${{ github.event.inputs.A }}" ]; then
+            ARGS="$ARGS --A ${{ github.event.inputs.A }}"
+          fi
+          if [ -n "${{ github.event.inputs.N }}" ]; then
+            ARGS="$ARGS --N ${{ github.event.inputs.N }}"
+          fi
+
+          python scripts/compute_D.py $ARGS
+
+      - name: Run calibrate_alpha.py
+        run: python scripts/calibrate_alpha.py
+
+      - name: Run test_hypotheses.py
+        run: python scripts/test_hypotheses.py
+
+      - name: Display results
+        run: |
+          echo "=== D Result ==="
+          cat D_result_${{ github.event.inputs.symbol }}.json
+          echo ""
+          echo "=== Alpha Calibration ==="
+          cat alpha_calibration_results.json
+          echo ""
+          echo "=== Hypothesis Tests ==="
+          cat hypothesis_test_results.json
+
+      - name: Upload results as artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: D-computation-${{ github.event.inputs.symbol }}-${{ github.run_number }}
+          path: |
+            D_result_${{ github.event.inputs.symbol }}.json
+            alpha_calibration_results.json
+            hypothesis_test_results.json
+          retention-days: 90
+
+      - name: Commit results to repository
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          RESULT_FILE="D_result_${{ github.event.inputs.symbol }}.json"
+          git add "$RESULT_FILE" alpha_calibration_results.json hypothesis_test_results.json
+
+          git diff --staged --quiet || \
+            git commit -m "SRM D computation: ${{ github.event.inputs.symbol }} — alpha=${{ github.event.inputs.alpha }}, bootstrap=${{ github.event.inputs.bootstrap }}"
+
+          git push

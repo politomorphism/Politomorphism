@@ -1,0 +1,14 @@
+{
+  "symbol": "Georgescu",
+  "D_result": {
+    "PE": 0.5782,
+    "ICI": 0.6342,
+    "D": 0.6062,
+    "alpha": 0.5,
+    "D_std": 0.0024,
+    "D_ci_low": 0.6014,
+    "D_ci_high": 0.611,
+    "n_docs": 4000,
+    "bootstrap_n": 200
+  }
+}

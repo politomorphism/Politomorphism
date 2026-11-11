@@ -1,0 +1,14 @@
+{
+  "symbol": "ChavezAcute",
+  "D_result": {
+    "PE": 0.6002,
+    "ICI": 0.8017,
+    "D": 0.7009,
+    "alpha": 0.5,
+    "D_std": 0.0035,
+    "D_ci_low": 0.694,
+    "D_ci_high": 0.7078,
+    "n_docs": 2000,
+    "bootstrap_n": 200
+  }
+}

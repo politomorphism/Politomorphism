@@ -1,0 +1,14 @@
+{
+  "symbol": "Modi2014",
+  "D_result": {
+    "PE": 0.5913,
+    "ICI": 0.9131,
+    "D": 0.7522,
+    "alpha": 0.5,
+    "D_std": 0.0013,
+    "D_ci_low": 0.7497,
+    "D_ci_high": 0.7547,
+    "n_docs": 2000,
+    "bootstrap_n": 200
+  }
+}

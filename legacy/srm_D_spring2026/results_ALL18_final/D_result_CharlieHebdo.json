@@ -1,0 +1,14 @@
+{
+  "symbol": "CharlieHebdo",
+  "D_result": {
+    "PE": 0.5715,
+    "ICI": 0.7316,
+    "D": 0.6516,
+    "alpha": 0.5,
+    "D_std": 0.0024,
+    "D_ci_low": 0.6469,
+    "D_ci_high": 0.6563,
+    "n_docs": 2000,
+    "bootstrap_n": 200
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "symbol": "IranIsrael",
+  "D_result": {
+    "PE": 0.6041,
+    "ICI": 0.9094,
+    "D": 0.7568,
+    "alpha": 0.5,
+    "D_std": 0.0014,
+    "D_ci_low": 0.7541,
+    "D_ci_high": 0.7595,
+    "n_docs": 2000,
+    "bootstrap_n": 200
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "symbol": "Macron",
+  "D_result": {
+    "PE": 0.6026,
+    "ICI": 0.729,
+    "D": 0.6658,
+    "alpha": 0.5,
+    "D_std": 0.0022,
+    "D_ci_low": 0.6615,
+    "D_ci_high": 0.6701,
+    "n_docs": 2000,
+    "bootstrap_n": 200
+  }
+}

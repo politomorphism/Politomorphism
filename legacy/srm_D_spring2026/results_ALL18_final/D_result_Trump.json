@@ -1,0 +1,14 @@
+{
+  "symbol": "Trump",
+  "D_result": {
+    "PE": 0.5913,
+    "ICI": 0.8824,
+    "D": 0.7369,
+    "alpha": 0.5,
+    "D_std": 0.0015,
+    "D_ci_low": 0.734,
+    "D_ci_high": 0.7398,
+    "n_docs": 2000,
+    "bootstrap_n": 200
+  }
+}

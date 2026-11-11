@@ -1,0 +1,14 @@
+{
+  "symbol": "Ciolacu",
+  "D_result": {
+    "PE": 0.5763,
+    "ICI": 0.6582,
+    "D": 0.6173,
+    "alpha": 0.5,
+    "D_std": 0.0028,
+    "D_ci_low": 0.6118,
+    "D_ci_high": 0.6228,
+    "n_docs": 2000,
+    "bootstrap_n": 200
+  }
+}

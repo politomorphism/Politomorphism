@@ -1,0 +1,14 @@
+{
+  "symbol": "Sunflower",
+  "D_result": {
+    "PE": 0.6206,
+    "ICI": 0.7871,
+    "D": 0.7039,
+    "alpha": 0.5,
+    "D_std": 0.0032,
+    "D_ci_low": 0.6977,
+    "D_ci_high": 0.7101,
+    "n_docs": 762,
+    "bootstrap_n": 200
+  }
+}

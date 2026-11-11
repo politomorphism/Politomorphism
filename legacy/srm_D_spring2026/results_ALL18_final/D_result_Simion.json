@@ -1,0 +1,14 @@
+{
+  "symbol": "Simion",
+  "D_result": {
+    "PE": 0.566,
+    "ICI": 0.6916,
+    "D": 0.6288,
+    "alpha": 0.5,
+    "D_std": 0.0028,
+    "D_ci_low": 0.6233,
+    "D_ci_high": 0.6343,
+    "n_docs": 2000,
+    "bootstrap_n": 200
+  }
+}

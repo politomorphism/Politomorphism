@@ -1,0 +1,14 @@
+{
+  "symbol": "Orban",
+  "D_result": {
+    "PE": 0.6006,
+    "ICI": 0.5924,
+    "D": 0.5965,
+    "alpha": 0.5,
+    "D_std": 0.003,
+    "D_ci_low": 0.5907,
+    "D_ci_high": 0.6023,
+    "n_docs": 2000,
+    "bootstrap_n": 200
+  }
+}

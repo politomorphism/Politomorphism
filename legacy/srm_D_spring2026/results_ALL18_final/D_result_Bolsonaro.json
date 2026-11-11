@@ -1,0 +1,14 @@
+{
+  "symbol": "Bolsonaro",
+  "D_result": {
+    "PE": 0.6185,
+    "ICI": 0.7731,
+    "D": 0.6958,
+    "alpha": 0.5,
+    "D_std": 0.002,
+    "D_ci_low": 0.6919,
+    "D_ci_high": 0.6997,
+    "n_docs": 2000,
+    "bootstrap_n": 200
+  }
+}

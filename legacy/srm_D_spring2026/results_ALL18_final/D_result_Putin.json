@@ -1,0 +1,14 @@
+{
+  "symbol": "Putin",
+  "D_result": {
+    "PE": 0.6189,
+    "ICI": 0.6459,
+    "D": 0.6324,
+    "alpha": 0.5,
+    "D_std": 0.0028,
+    "D_ci_low": 0.6268,
+    "D_ci_high": 0.638,
+    "n_docs": 2000,
+    "bootstrap_n": 200
+  }
+}

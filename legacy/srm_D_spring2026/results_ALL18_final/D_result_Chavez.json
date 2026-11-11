@@ -1,0 +1,14 @@
+{
+  "symbol": "Chavez",
+  "D_result": {
+    "PE": 0.5941,
+    "ICI": 0.9127,
+    "D": 0.7534,
+    "alpha": 0.5,
+    "D_std": 0.0014,
+    "D_ci_low": 0.7506,
+    "D_ci_high": 0.7562,
+    "n_docs": 2000,
+    "bootstrap_n": 200
+  }
+}
