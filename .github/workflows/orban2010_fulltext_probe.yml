@@ -1,0 +1,31 @@
+name: Orban 2010 — full-text availability probe
+
+on:
+  workflow_dispatch:
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install
+        run: pip install pandas==2.2.2 requests trafilatura mediacloud
+      - name: Probe
+        env:
+          MEDIACLOUD_API_KEY: ${{ secrets.MEDIACLOUD_API_KEY }}
+        run: python scripts/probe_fulltext_orban2010.py
+      - name: Commit coverage counts
+        if: success()
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add disinformation_paper/orban2010_data/fulltext_probe.json
+          git diff --staged --quiet || git commit -m "data: Orban 2010 full-text availability probe"
+          git pull --rebase origin main
+          git push origin main
