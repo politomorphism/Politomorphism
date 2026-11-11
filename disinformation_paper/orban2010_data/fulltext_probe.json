@@ -1,0 +1,24 @@
+{
+  "n_items": 270,
+  "routeA_mediacloud": {
+    "status": "MEDIACLOUD_API_KEY not set"
+  },
+  "routeB_url": {
+    "tested": 270,
+    "with_first_paragraph": 99,
+    "status_counts": {
+      "http_401": 13,
+      "200_with_paragraph": 99,
+      "http_404": 59,
+      "ConnectionError": 6,
+      "http_429": 2,
+      "http_403": 28,
+      "http_406": 5,
+      "200_no_paragraph": 10,
+      "ReadTimeout": 20,
+      "http_402": 10,
+      "http_400": 9,
+      "http_530": 9
+    }
+  }
+}
