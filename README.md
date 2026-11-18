@@ -32,10 +32,12 @@ python data_collector.py    # collect real RSS data
 python fix_data.py          # or generate synthetic data
 ```
 
+`data_collector.py` writes `data/real/sentiment_topics.csv`, `srm_scores.csv` and
+`polling.csv`. The CMG code is included (`cmg_component.py`, `cmg_run.py`, CMG v1.1);
+`cmg_run.py` also reads `outputs/MC_results.csv`, the output of the MC calibration.
 `mc_run.py` imports `mc_component.py`, which is not yet in this repository, so the MC
-calibration cannot be re-run from here until that module is added. The CMG scripts
-(`cmg_component.py`, `cmg_run.py`) are not in the repository either; the CMG figures and
-results below are the saved outputs (`CMG_real_results.csv`, `CMG_real_results.png`).
+calibration cannot be re-run from here until that module is added; until then, CMG can be
+run on the saved MC output by copying `MC_results.csv` to `outputs/MC_results.csv`.
 
 ---
 
@@ -52,7 +54,8 @@ Politomorphism/
 ├── scripts/                 # EEF longitudinal panel, Orbán 2010 probes, model code
 ├── legacy/                  # earlier SRM D results (spring 2026) and an earlier README
 ├── .github/workflows/       # reproducible runs of the audits and the Orbán 2010 steps
-├── mc_run.py, MC_results.csv, MC_real_*.png        # MC (module not yet included)
+├── mc_run.py, MC_results.csv, MC_real_*.png        # MC (module mc_component.py not yet included)
+├── cmg_component.py, cmg_run.py                    # CMG v1.1 code
 ├── CMG_real_results.csv, CMG_real_results.png      # CMG saved outputs
 ├── srm_*.csv, srm_*.png, SRM_*.png                 # SRM scores and figures
 ├── eef_chart_*.png                                 # EEF figures
@@ -68,7 +71,7 @@ Politomorphism/
 | # | Code | Name | Status | SSRN |
 |---|------|------|--------|------|
 | 1 | MC | Metapolitical Calibration | ⚠️ Preliminary estimates (Romania, 12 quarters); module not yet in this repo | This repo |
-| 2 | CMG | Cognitive Morphogenesis | ⚠️ Romania 2024–2026 results; code not yet in this repo | This repo |
+| 2 | CMG | Cognitive Morphogenesis | ⚠️ Romania 2024–2026 results; code in this repo (CMG v1.1) | This repo |
 | 3 | SRM | Social Resonance Model | ✅ 25 symbols, R²=0.770 | 6348318 |
 | 4 | EEF | Entropic Equilibrium Function | ⚠️ Provisional — α=0.8116 validated on original 3 countries; 6-country extension (Estonia/Slovakia/Serbia) in progress, see the Data Integrity Note (PDF not yet in this repository) | 6677579 |
 | 5 | PFM | Political Fragmentation Model | ✅ Published | 6729899 |
