@@ -30,35 +30,36 @@ cd Politomorphism
 pip install -r requirements.txt
 python data_collector.py    # collect real RSS data
 python fix_data.py          # or generate synthetic data
-python mc_run.py            # run MC calibration
-python cmg_run.py           # run CMG calibration
 ```
+
+`mc_run.py` imports `mc_component.py`, which is not yet in this repository, so the MC
+calibration cannot be re-run from here until that module is added. The CMG scripts
+(`cmg_component.py`, `cmg_run.py`) are not in the repository either; the CMG figures and
+results below are the saved outputs (`CMG_real_results.csv`, `CMG_real_results.png`).
 
 ---
 
-## Repository Structure
+## Repository Structure (as it is)
 
 ```
 Politomorphism/
-├── components/
-│   ├── mc_component.py        # MC — Metapolitical Calibration
-│   └── cmg_component.py       # CMG — Cognitive Morphogenesis
-├── data/
-│   └── real/
-│       ├── sentiment_topics.csv
-│       ├── srm_scores.csv
-│       └── polling.csv        # INSCOP 2024–2026
-├── outputs/
-│   ├── MC_real_comparative.png
-│   ├── MC_real_trajectories.png
-│   ├── MC_results.csv
-│   ├── CMG_real_results.png
-│   └── CMG_real_results.csv
-├── data_collector.py
-├── fix_data.py
-├── mc_run.py
-├── cmg_run.py
-└── requirements.txt
+├── 05_lde_component/        # LDE calibration on Eurobarometer data
+├── data/                    # Orbán 2010 content for the SRM→EEF coupling test
+├── disinformation_paper/    # Orbán 2010 D, PE and ICI computations
+├── isc/                     # ISC: Romanian parliamentary transcripts 2020 and scores
+├── pfm_survival/            # PFM-Survival training data and model
+├── politomorf_pipeline/     # automated Romanian political media monitoring
+├── scripts/                 # EEF longitudinal panel, Orbán 2010 probes, model code
+├── legacy/                  # earlier SRM D results (spring 2026) and an earlier README
+├── .github/workflows/       # reproducible runs of the audits and the Orbán 2010 steps
+├── mc_run.py, MC_results.csv, MC_real_*.png        # MC (module not yet included)
+├── CMG_real_results.csv, CMG_real_results.png      # CMG saved outputs
+├── srm_*.csv, srm_*.png, SRM_*.png                 # SRM scores and figures
+├── eef_chart_*.png                                 # EEF figures
+├── audit_fezabilitate.py, audit_fezabilitate_v2.py, criterii_caz_B.md, cases.json
+├── data_collector.py, fix_data.py, georgescu_temporal_ici.py
+├── predictions_t0_20260610.json, srm_values_t0_20260610.csv
+└── Computational Political Anthropology- Defining a New Field and Its Core Engine.pdf
 ```
 
 ---
@@ -66,13 +67,13 @@ Politomorphism/
 ## Component Status
 | # | Code | Name | Status | SSRN |
 |---|------|------|--------|------|
-| 1 | MC | Metapolitical Calibration | ✅ Implemented | This repo |
-| 2 | CMG | Cognitive Morphogenesis | ✅ Implemented | This repo |
+| 1 | MC | Metapolitical Calibration | ⚠️ Preliminary estimates (Romania, 12 quarters); module not yet in this repo | This repo |
+| 2 | CMG | Cognitive Morphogenesis | ⚠️ Romania 2024–2026 results; code not yet in this repo | This repo |
 | 3 | SRM | Social Resonance Model | ✅ 25 symbols, R²=0.770 | 6348318 |
-| 4 | EEF | Entropic Equilibrium Function | ⚠️ Provisional — α=0.8116 validated on original 3 countries; 6-country extension (Estonia/Slovakia/Serbia) in progress, see [Data Integrity Note](docs/Data_Integrity_Note_NIT_Scale_Conversion.pdf) | 6677579 |
+| 4 | EEF | Entropic Equilibrium Function | ⚠️ Provisional — α=0.8116 validated on original 3 countries; 6-country extension (Estonia/Slovakia/Serbia) in progress, see the Data Integrity Note (PDF not yet in this repository) | 6677579 |
 | 5 | PFM | Political Fragmentation Model | ✅ Published | 6729899 |
 | 6 | ISC | Symbolic Coherence Index | ✅ Null result documented | 6826140 |
-| 7 | LDE | Legitimacy Dynamics Engine | 🔄 Partial validation | 6850362 |
+| 7 | LDE | Legitimacy Dynamics Engine | ❌ Pre-registered confirmatory test returned the opposite sign | 6850362 |
 
 ## Component 1 — MC: Metapolitical Calibration
 
@@ -92,7 +93,7 @@ S(t+1) = (1 - α) · S(t) + α · W · I(t) + β · SRM(t-1) + ε_MC(t)
 | PNL | Institutional | 0.133 | −0.028 | [−0.073, 0.021] |
 | USR | Institutional | 0.506 | 0.034 | [−0.022, 0.063] |
 
-**β_populist = 0.013 > β_institutional = −0.006 → Hypothesis supported.**
+**Preliminary:** mean β of the populist actors (0.013) is above that of the institutional actors (−0.006), but the difference has not been formally tested and the intervals of several actors include zero, so the hypothesis is not yet established.
 
 Georgescu α=0.874 — highest in dataset, consistent with flash-viral symbol profile and post-annulment symbolic exile dynamics (SSRN 6880661).
 
@@ -138,6 +139,8 @@ POL(t)   = ||C_A(t) − C_B(t)||₂
 ![CMG Results](CMG_real_results.png)
 
 **Companion working paper:** *Operationalizing the Cognitive Maturation Gradient (CMG): A Transparent Measurement Framework, with Evidence from Romania (2005–2018)* documents a fully sourced, independently reproducible protocol (Eurostat tertiary-education series + WVS/EVS survey waves) for the national-level E(t)/T(t)/K(t)/C(t) trajectory — distinct from, and complementary to, the bloc-polarization application above. It fixes source selection, a mechanical shock-coding rule, theoretical-bound normalization, equal-weight defaults with a 3×3 sensitivity analysis, and introduces a formal **transition-zone rule** (|C(t) − τ| ≤ δ) for interpreting stage classifications near numeric thresholds, now part of CMG's general definition.
+
+*Naming note:* the component is **Cognitive Morphogenesis** (bloc frame polarization); the companion paper uses the name *Cognitive Maturation Gradient* for the national-level measurement. The two share the abbreviation CMG; a single name is to be chosen by the author.
 
 ---
 
@@ -185,7 +188,7 @@ Conversion: score_new = 8 − score_old
 
 All indicator series in the EEF v4 panel are standardized to the new (7 = best) convention. This is a data-integrity correction, not a full numerical validation — see the note for the distinction between convention correction, coverage gaps, and fuzzy-transformation uncertainty still pending reconciliation.
 
-📄 Full write-up: Data Integrity Note (PDF) · OSF
+📄 Full write-up: Data Integrity Note (PDF, not yet in this repository; see OSF)
 
 Series	Status
 Romania / Hungary / Poland — Judicial & Electoral	New convention; not yet line-by-line re-verified
@@ -229,7 +232,7 @@ L(t+1) = L(t) + λ[α·P(t) + β·N(t) − γ·C(t)] − θ[L(t) − L*]
 | Hungary | — | [−0.111, 0.967] | Inconclusive |
 | Slovakia | 0.003 | [0.018, 0.836] | ❌ Null result — referent-instability diagnosis (partisan re-alignment of trust, not continuous shock-recovery) |
 
-**Confirmatory extension in progress:** the transition-versus-stability hypothesis motivated by the Hungary/Slovakia results has been converted into a pre-registered, falsifiable test — Bulgaria (high partisan turnover) vs. Portugal (low partisan turnover) — with country selection, crisis-coding rule, and decision thresholds locked *before* data extraction. OSF registration: [10.17605/OSF.IO/HYDNZ](https://doi.org/10.17605/OSF.IO/HYDNZ), registered 21 July 2026.
+**Confirmatory test — result: opposite sign.** The transition-versus-stability hypothesis motivated by the Hungary/Slovakia results was converted into a pre-registered, falsifiable test — Bulgaria (high partisan turnover) vs. Portugal (low partisan turnover) — with country selection, crisis-coding rule and decision thresholds locked *before* data extraction (OSF registration um6gp, registered 21 July 2026). The test returned R²(Portugal) − R²(Bulgaria) = −0.2558, the opposite of the predicted sign. Calibration on the Romanian, Hungarian and Polish Eurobarometer series was non-identifiable at low series variance. LDE is therefore deprioritised; the result is reported, not withdrawn.
 
 ---
 
@@ -252,7 +255,7 @@ Remaining: 2014, 2018, and a recalculation of the existing single Orbán point o
 - LOOCV for all empirical results
 - Bootstrap CIs (300–500 replications)
 - Null results documented openly
-- Adversarial AI review (Grok, ChatGPT) before SSRN submission
+- Adversarial review by AI assistants (Grok, ChatGPT) before SSRN submission — a check, not a substitute for peer review
 - V-Dem v14 as convergent validity benchmark
 - L-BFGS-B parametric optimization
 - OSF pre-registration for prospective predictions
@@ -290,33 +293,33 @@ Reimers, N., & Gurevych, I. (2019). Sentence-BERT: Sentence embeddings using Sia
 
 Shannon, C. E. (1948). A mathematical theory of communication. Bell System Technical Journal, 27(3), 379–423.
 
-Florin, Ș. G. (2026). Politomorphism and the Social Resonance Model: Quantifying political symbolic fragmentation across 22 symbol-periods. SSRN working paper; OSF DOI 10.17605/OSF.IO/HYDNZ.
+Șerban, G. F. (2026). Politomorphism and the Social Resonance Model: Quantifying political symbolic fragmentation across 22 symbol-periods. SSRN working paper; OSF DOI 10.17605/OSF.IO/HYDNZ.
 
-Florin, Ș. G. (2026). Operationalizing semantic drift (D) in the Social Resonance Model. SSRN 6583879.
+Șerban, G. F. (2026). Operationalizing semantic drift (D) in the Social Resonance Model. SSRN 6583879.
 
-Florin, Ș. G. (2026). The Politomorphism Engine: Full empirical validation (bootstrap ICI, parametric optimization, Prophet forecasting). SSRN working paper.
+Șerban, G. F. (2026). The Politomorphism Engine: Full empirical validation (bootstrap ICI, parametric optimization, Prophet forecasting). SSRN working paper.
 
-Florin, Ș. G. (2026). Politomorphism: Clarifying intentional and emergent processes (Module 3.1). SSRN preprint.
+Șerban, G. F. (2026). Politomorphism: Clarifying intentional and emergent processes (Module 3.1). SSRN preprint.
 
-Florin, Ș. G. (2026). The Politomorphism Engine: A five-component framework for computational political analysis. SSRN working paper.
+Șerban, G. F. (2026). The Politomorphism Engine: A five-component framework for computational political analysis. SSRN working paper.
 
-Florin, Ș. G. (2026). Coupling SRM, EEF, and ISC: The adaptive layer of the Politomorphism Engine. OSF DOI 10.17605/OSF.IO/HYDNZ.
+Șerban, G. F. (2026). Coupling SRM, EEF, and ISC: The adaptive layer of the Politomorphism Engine. OSF DOI 10.17605/OSF.IO/HYDNZ.
 
-Florin, Ș. G. (2026). Measuring political systemic instability: The Entropic Equilibrium Function (EEF). SSRN working paper.
+Șerban, G. F. (2026). Measuring political systemic instability: The Entropic Equilibrium Function (EEF). SSRN working paper.
 
-Florin, Ș. G. (2026). The Political Fragmentation Model (PFM): A formal theory of fragmentation propagation in political systems. SSRN working paper.
+Șerban, G. F. (2026). The Political Fragmentation Model (PFM): A formal theory of fragmentation propagation in political systems. SSRN working paper.
 
-Florin, Ș. G. (2026). PFM-Survival: Pre-registered random survival forest prediction of political symbol attention decay. SSRN working paper.
+Șerban, G. F. (2026). PFM-Survival: Pre-registered random survival forest prediction of political symbol attention decay. SSRN working paper.
 
-Florin, Ș. G. (2026). Cognitive Morphogenesis (CMG): Modeling collective frame polarization. SSRN working paper.
+Șerban, G. F. (2026). Cognitive Morphogenesis (CMG): Modeling collective frame polarization. SSRN working paper.
 
-Florin, Ș. G. (2026). Metapolitical Calibration (MC): Formalizing strategic adaptation. SSRN 6918918.
+Șerban, G. F. (2026). Metapolitical Calibration (MC): Formalizing strategic adaptation. SSRN 6918918.
 
-Florin, Ș. G. (2026). The Symbolic Coherence Index does not predict electoral support in Romania 2019–2024; Parliamentary speech coherence does not predict electoral support. Null-result working papers.
+Șerban, G. F. (2026). The Symbolic Coherence Index does not predict electoral support in Romania 2019–2024; Parliamentary speech coherence does not predict electoral support. Null-result working papers.
 
-Florin, Ș. G. (2026). The Legitimacy Dynamics Engine: Preliminary calibration on Romania, Hungary and Poland; Cross-national calibration on Standard Eurobarometer data (2014–2025). Working papers.
+Șerban, G. F. (2026). The Legitimacy Dynamics Engine: Preliminary calibration on Romania, Hungary and Poland; Cross-national calibration on Standard Eurobarometer data (2014–2025). Working papers.
 
-Florin, Ș. G. (2026). Cross-cultural frame incompatibility: Modi 2014, 2019 and 2024; Imran Khan 2018; Milei 2023; Meloni 2021–2024; Harris 2024 and the VP baseline effect. SSRN working papers.
+Șerban, G. F. (2026). Cross-cultural frame incompatibility: Modi 2014, 2019 and 2024; Imran Khan 2018; Milei 2023; Meloni 2021–2024; Harris 2024 and the VP baseline effect. SSRN working papers.
 
 
 
