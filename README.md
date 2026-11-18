@@ -35,9 +35,11 @@ python fix_data.py          # or generate synthetic data
 `data_collector.py` writes `data/real/sentiment_topics.csv`, `srm_scores.csv` and
 `polling.csv`. The CMG code is included (`cmg_component.py`, `cmg_run.py`, CMG v1.1);
 `cmg_run.py` also reads `outputs/MC_results.csv`, the output of the MC calibration.
-`mc_run.py` imports `mc_component.py`, which is not yet in this repository, so the MC
-calibration cannot be re-run from here until that module is added; until then, CMG can be
-run on the saved MC output by copying `MC_results.csv` to `outputs/MC_results.csv`.
+The original `mc_component.py` (June 2026) was lost. The `mc_component.py` in this
+repository is a reconstruction (MC v2.0, November 2026) written from the published
+equation and from the interface `mc_run.py` expects; see the MC section below for what it
+does and does not reproduce. CMG can be run either on the saved June 2026 MC output
+(copy `MC_results.csv` to `outputs/MC_results.csv`) or on a new run of `mc_run.py`.
 
 ---
 
@@ -54,7 +56,8 @@ Politomorphism/
 ├── scripts/                 # EEF longitudinal panel, Orbán 2010 probes, model code
 ├── legacy/                  # earlier SRM D results (spring 2026) and an earlier README
 ├── .github/workflows/       # reproducible runs of the audits and the Orbán 2010 steps
-├── mc_run.py, MC_results.csv, MC_real_*.png        # MC (module mc_component.py not yet included)
+├── mc_component.py, mc_run.py                       # MC v2.0 (reconstructed module)
+├── MC_results.csv, MC_real_*.png                   # MC saved outputs (June 2026, original module)
 ├── cmg_component.py, cmg_run.py                    # CMG v1.1 code
 ├── CMG_real_results.csv, CMG_real_results.png      # CMG saved outputs
 ├── srm_*.csv, srm_*.png, SRM_*.png                 # SRM scores and figures
@@ -70,7 +73,7 @@ Politomorphism/
 ## Component Status
 | # | Code | Name | Status | SSRN |
 |---|------|------|--------|------|
-| 1 | MC | Metapolitical Calibration | ⚠️ Preliminary estimates (Romania, 12 quarters); module not yet in this repo | This repo |
+| 1 | MC | Metapolitical Calibration | ⚠️ June 2026 estimates not reproducible; module reconstructed, β not identified at 12 quarters | This repo |
 | 2 | CMG | Cognitive Morphogenesis | ⚠️ Romania 2024–2026 results; code in this repo (CMG v1.1) | This repo |
 | 3 | SRM | Social Resonance Model | ✅ 25 symbols, R²=0.770 | 6348318 |
 | 4 | EEF | Entropic Equilibrium Function | ⚠️ Provisional — α=0.8116 validated on original 3 countries; 6-country extension (Estonia/Slovakia/Serbia) in progress, see the Data Integrity Note (PDF not yet in this repository) | 6677579 |
@@ -86,7 +89,7 @@ S(t+1) = (1 - α) · S(t) + α · W · I(t) + β · SRM(t-1) + ε_MC(t)
 
 **β Hypothesis:** Populist actors (AUR, Georgescu) have significantly higher β than institutional actors (PNL, PSD) — they recalibrate strategy more aggressively based on prior resonance feedback.
 
-### Results — Romania 2024–2026
+### Results — Romania 2024–2026 (June 2026 run of the original module, now lost)
 
 | Actor | Type | α | β | β 95% CI |
 |-------|------|---|---|----------|
@@ -99,6 +102,23 @@ S(t+1) = (1 - α) · S(t) + α · W · I(t) + β · SRM(t-1) + ε_MC(t)
 **Preliminary:** mean β of the populist actors (0.013) is above that of the institutional actors (−0.006), but the difference has not been formally tested and the intervals of several actors include zero, so the hypothesis is not yet established.
 
 Georgescu α=0.874 — highest in dataset, consistent with flash-viral symbol profile and post-annulment symbolic exile dynamics (SSRN 6880661).
+
+### Reconstruction (November 2026)
+
+The module that produced the table above was lost and the table cannot be reproduced.
+`mc_component.py` was rebuilt from the equation: the trajectory is simulated from the first
+quarter, W and β are solved by least squares for each α, and α is chosen by grid search on
+[0, 1]. No reasonable variant of the equation (W estimated or fixed, different SRM lags,
+simulated or one-step-ahead fit) returns the June 2026 values on the data in this
+repository, so the table above should be read as unverified.
+
+Parameter recovery on synthetic data (`python mc_component.py`, true α = 0.35, β = 0.04):
+α is recovered well at 12 quarters (median 0.345). β is not: with W estimated, the 90%
+range of the recovered β is [−0.18, +0.29] and its sign is right in only 66% of runs; with
+W known it is [+0.004, +0.071]. On the Romanian data the reconstructed module puts α at
+the lower bound 0 for four of the five actors, which removes the W·I(t) term, and gives
+β values from −0.88 to +0.20 with wide intervals. With 12 quarters and W estimated, the MC
+β hypothesis cannot be tested; it needs a fixed or theory-given W, or a longer series.
 
 ![MC Comparative](MC_real_comparative.png)
 
