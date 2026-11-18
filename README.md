@@ -34,12 +34,13 @@ python fix_data.py          # or generate synthetic data
 
 `data_collector.py` writes `data/real/sentiment_topics.csv`, `srm_scores.csv` and
 `polling.csv`. The CMG code is included (`cmg_component.py`, `cmg_run.py`, CMG v1.1);
-`cmg_run.py` also reads `outputs/MC_results.csv`, the output of the MC calibration.
+`cmg_run.py` stops if `outputs/MC_results.csv` is missing, but it does not use its values,
+so the CMG result does not depend on the MC module.
 The original `mc_component.py` (June 2026) was lost. The `mc_component.py` in this
 repository is a reconstruction (MC v2.0, November 2026) written from the published
 equation and from the interface `mc_run.py` expects; see the MC section below for what it
-does and does not reproduce. CMG can be run either on the saved June 2026 MC output
-(copy `MC_results.csv` to `outputs/MC_results.csv`) or on a new run of `mc_run.py`.
+does and does not reproduce. To run CMG, either copy the saved `MC_results.csv` to
+`outputs/MC_results.csv` or run `mc_run.py` first; the CMG estimates are the same either way.
 
 ---
 
@@ -74,7 +75,7 @@ Politomorphism/
 | # | Code | Name | Status | SSRN |
 |---|------|------|--------|------|
 | 1 | MC | Metapolitical Calibration | ⚠️ June 2026 estimates not reproducible; module reconstructed, β not identified at 12 quarters | This repo |
-| 2 | CMG | Cognitive Morphogenesis | ⚠️ Romania 2024–2026 results; code in this repo (CMG v1.1) | This repo |
+| 2 | CMG | Cognitive Morphogenesis | ⚠️ Romania 2024–2026 results, reproduced from this repo (CMG v1.1); γ interval cut at the search bound | This repo |
 | 3 | SRM | Social Resonance Model | ✅ 25 symbols, R²=0.770 | 6348318 |
 | 4 | EEF | Entropic Equilibrium Function | ⚠️ Provisional — α=0.8116 validated on original 3 countries; 6-country extension (Estonia/Slovakia/Serbia) in progress, see the Data Integrity Note (PDF not yet in this repository) | 6677579 |
 | 5 | PFM | Political Fragmentation Model | ✅ Published | 6729899 |
@@ -156,6 +157,8 @@ POL(t)   = ||C_A(t) − C_B(t)||₂
 | α_B | 0.036 | [0.012, 0.045] |
 | γ | −0.479 | [−0.500, −0.114] |
 | POL trend | −0.021 | DECREASING |
+
+Reproduced exactly from `cmg_run.py` and the data in this repository (18 November 2026). The lower limit of the γ interval, −0.500, is the bound of the parameter search, so the interval is truncated and the true lower limit may be further below zero.
 
 **Key finding:** γ = −0.479 entirely negative. Post-electoral annulment (Romania, Dec 2024): Georgescu's resonance driven by juridical exclusion narratives → resonance-induced frame *freezing*, not amplification. Consistent with Symbolic Exile framework (SSRN 6880661).
 
